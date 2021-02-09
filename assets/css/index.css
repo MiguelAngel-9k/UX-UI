@@ -1,0 +1,12 @@
+body{
+    height: 250vh;
+}
+
+.solutions{
+    height: 50vh;
+    background-image: url("/assets/img/indexImg/nzxt.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
