@@ -18,7 +18,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="bg-light mb-0 pb-0">
     <!-- NAVBAR BRAND AN TOGGLE BUTTON -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <a href="#" class="navbar-brand">Navbar Brand</a>
@@ -31,8 +31,8 @@
         <!-- NAVBAR ITEMS AND TOGGLE CONTENT -->
         <!-- GIVE STYLE TO SEARCH BUTTON AND SEARCH BAR-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form action="" class=" w-75 mx-auto position-relative mr-3" method="get">
-                <input class="form-control d-inline" type="search" name="" id="">
+            <form action="" class="w-75 form-inline mx-auto position-relative mr-3" method="get">
+                <input class="form-control w-100" type="search" name="" id="">
                 <button class="position-absolute btn btn-secondary" style="right: 0px" type="submit"><i
                         class="fas fa-search"></i></button>
             </form>
@@ -79,12 +79,13 @@
         </div>
     </nav>
     <!-- UNDER NAV ITEMS -->
-    <nav class="nav">
+    <nav class="nav justify">
         <a href="#" class="nav-link disabled">Computadoras</a>
         <a href="#" class="nav-link disabled">Tienda</a>
         <a href="#" class="nav-link disabled">Computadoras</a>
     </nav>
 
+    <!-- PC BUILDS BANNER -->
     <div class="container-expand-lg mt-lg-5">
         <div class="row-expand">
            <div class="col p-0 m-0">
@@ -100,10 +101,12 @@
             </div>
            </div>
         </div>
+        <!-- PC BUILDS CAROUSEL -->
         <div class="row-expand-lg">
             <div class="col">
                 <div class="d-flex justify-content-center">
                     <button id="left" class="btn"><i class="fas fa-chevron-left"></i></button>
+                    <!-- BEGINING AN CAROUSEL ITEM -->
                     <div class="card" style="width: 18rem;">
                         <img src="assets/img/indexImg/nzxt.jpg" alt="Image" class="card-img-top">
                         <div class="card-body">
@@ -112,6 +115,7 @@
                             <a href="#" class="btn btn-primary">Go somwhere</a>
                         </div>
                     </div>
+                    <!-- HERE ENDS -->
                     <div class="card" style="width: 18rem;">
                         <img src="assets/img/indexImg/nzxt.jpg" alt="Image" class="card-img-top">
                         <div class="card-body">
@@ -188,7 +192,108 @@
                 </div>
             </div>
         </div>
+        <div class="row-expand mt-lg-5">
+            <div class="col p-0 m-0">
+                <div class="jumbotron store text-light position-relative">
+                    <h1 class="display-4">Computadoras</h1>
+                    <p class="lead">Computadoras preensambladas echas para tus necesidades. Como workstations, Videojuegos, Renderizado 3D, edicion y disenio</p>
+                    <hr class="my-4">
+                    <p>Todo lo que necesitas en una sola computadora
+                    </p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Catalogo</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="row m-1 paymentMethods">
+                <div class="col pl-5">
+                    <img src="assets/img/icons/paypa-icon.png" class="paymentIcon" alt="">
+                </div>
+                <div class="col pl-5">
+                    <div>
+                        <img src="assets/img/icons/visaIcon.png" class="paymentIcon" alt="">
+                    </div>
+                </div>
+                <div class="col pl-5">
+                    <img src="assets/img/icons/masterCard.png" class="paymentIcon" alt="">                    
+                </div>
+                <div class="col my-auto p-0">
+                    <form class="form-inline" action="" method="post">
+                        <input id="newsTeller" class="form-control mt-2 mx-0" placeholder="Ejemplo@correo.com" type="text">
+                        <button class="btn btn-primary mx-0 mt-2" style="right: 0px"  type="submit">Suscribete</button>
+                        <small class="ml-3 mt-1" >Suscribete para las noticias, descuentos y nuevos productos</small>
+                    </form>
+                </div>
+            </div>
+            <div class="row m-1 mx-5 mt-5">
+                <div class="col footer-links">
+                    <h4 class="text-center"> <i class="fas fa-desktop mr-2"></i> Soluciones</h4>
+                    <ul>
+                        <li class="nav-link">
+                            <a href="#">Intel</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">AMD</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col footer-links">
+                    <h4 class="text-center"><i class="fas fa-store-alt mr-2"></i>Tienda</h4>
+                    <ul>
+                        <li class="nav-link">
+                            <a href="#">Componentes PC</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">Monitores</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">Perifericos</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">Limpieza</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col footer-links">
+                    <h4 class="text-center"><i class="fas fa-info-circle mr-2"></i>Acerca de nosotros</h4>
+                    <p>Tienda de computacion en monterrey, Nuevo Leon, Mexico con los equipos mas modernos de nueva generacion pc gamer y computadoras extremas de alto rendimiento, descktop, de escritorio, aio, todo en uno, slim, armadas.</p>
+                    <a href="#" class="btn btn-primary">Saber mas</a>
+                </div>
+                <div class="col footer-links">
+                    <h4 class="text-center"><i class="fas fa-phone mr-2"></i>Contactanos</h4>
+                   <ul>
+                    <li class="nav-link">
+                        <a href="#"><b>Direccion</b>: Emilio Carranza 935, Treviño, 64720 Monterrey, N.L.</a>
+                        <a href="#"><b>Horario</b> Lunes a Sabado de 12:00 - 18:00</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#"><i class="fab fa-whatsapp mr-2"></i><b>Whatsapp:</b> (81) 84 63 78 88 y (81) 31 61 38 50</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#"><i class="fas fa-phone mr-2"></i><b>Telefono:</b>(81) 83 75 21 25 Y (81) 75 23 37</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">Correo</a>
+                    </li>
+                   </ul>
+                </div>
+            </div>
+        </footer>      
     </div>
+
+<!-- <footer>
+    <div class="container-expand">
+        <div class="row">
+            <div class="col">First</div>
+            <div class="col">Second</div>
+            <div class="col">Third</div>
+        </div>
+    </div>
+</footer> -->
+
+
 
 
 

@@ -1,5 +1,11 @@
 body{
-    height: 250vh;
+    /* overflow: hidden; */
+    padding: 0px;
+    margin: 0px;
+}
+
+li{
+    margin: 0px;
 }
 
 .solutions{
@@ -10,3 +16,43 @@ body{
     background-repeat: no-repeat;
 }
 
+.store{
+    height: 50vh;
+    background-image: url("/assets/img/nzxt.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer{
+   /*  background-color: rgb(28, 201, 245); */
+}
+
+.paymentIcon{    
+    max-width: 90px;
+    max-height: 90px;
+}
+
+.paymentMethods{
+    border-top: 3px solid rgb(214, 214, 214);
+}
+
+.paymentIcon:hover{
+    border-bottom: 3px solid rgb(28, 201, 245);
+    size: 2px;
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.footer-links{
+    border-right: 2px solid rgb(214, 214, 214);
+}
+
+.footer-links ul>li.nav-link a{
+    color: black;
+    font-size: 18px;
+}
