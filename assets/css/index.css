@@ -1,3 +1,8 @@
+
+:root{
+    --primary-color: #20d7e4;
+}
+
 body{
     /* overflow: hidden; */
     padding: 0px;
@@ -6,6 +11,23 @@ body{
 
 li{
     margin: 0px;
+}
+
+.bg-primary{
+    background-color: var(--primary-color) !important;
+}
+
+.btn{
+    border: none;
+}
+
+.btn-primary{
+    background-color: var(--primary-color) !important;
+}
+
+.nav-link:hover{
+   border-bottom: 1px solid var(--primary-color);
+   font-size: 17px;
 }
 
 .solutions{
@@ -25,7 +47,9 @@ li{
 }
 
 footer{
-   /*  background-color: rgb(28, 201, 245); */
+    /* background-color: rgb(28, 201, 245); */
+    margin-top: 120px;
+
 }
 
 .paymentIcon{    
@@ -38,7 +62,7 @@ footer{
 }
 
 .paymentIcon:hover{
-    border-bottom: 3px solid rgb(28, 201, 245);
+    border-bottom: 3px solid var*var(--primary-color);
     size: 2px;
     cursor: pointer;
 }
@@ -54,5 +78,5 @@ a:hover{
 
 .footer-links ul>li.nav-link a{
     color: black;
-    font-size: 18px;
+    font-size: 14px;
 }

@@ -20,8 +20,8 @@
 
 <body class="bg-light mb-0 pb-0">
     <!-- NAVBAR BRAND AN TOGGLE BUTTON -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <a href="#" class="navbar-brand">Navbar Brand</a>
+    <nav class="navbar navbar-expand-lg navbar-white bg-white sticky-top px-5">
+        <a href="#" class="navbar-brand"><img src="assets/img/icons/altatec-logo.jpg" width="200" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,8 +32,8 @@
         <!-- GIVE STYLE TO SEARCH BUTTON AND SEARCH BAR-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form action="" class="w-75 form-inline mx-auto position-relative mr-3" method="get">
-                <input class="form-control w-100" type="search" name="" id="">
-                <button class="position-absolute btn btn-secondary" style="right: 0px" type="submit"><i
+                <input class="form-control w-100" type="search" name="" id="" placeholder="Que buscas hoy?">
+                <button class="position-absolute btn btn-primary" style="right: 0px" type="submit"><i
                         class="fas fa-search"></i></button>
             </form>
             <!-- NAV ITEMS -->
@@ -44,9 +44,9 @@
                 <li class="nav-link">
                     <!-- DROPDOWN BUTTON TO SIGN IN -->
                     <div class="btn-group dropleft">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            Dropleft
+                            Iniciar Sesion
                         </button>
                         <!-- CONTENT OF DROPDOWN MENU (SIGN IN FORM) -->
                         <div class="dropdown-menu dropdown-menu-right">
@@ -79,7 +79,7 @@
         </div>
     </nav>
     <!-- UNDER NAV ITEMS -->
-    <nav class="nav justify">
+    <nav class="nav justify-content-start">
         <a href="#" class="nav-link disabled">Computadoras</a>
         <a href="#" class="nav-link disabled">Tienda</a>
         <a href="#" class="nav-link disabled">Computadoras</a>
@@ -88,20 +88,26 @@
     <!-- PC BUILDS BANNER -->
     <div class="container-expand-lg mt-lg-5">
         <div class="row-expand">
-           <div class="col p-0 m-0">
-            <div class="jumbotron solutions text-light position-relative">
-                <h1 class="display-4">Computadoras</h1>
-                <p class="lead">Computadoras preensambladas echas para tus necesidades. Como workstations, Videojuegos, Renderizado 3D, edicion y disenio</p>
-                <hr class="my-4">
-                <p>Todo lo que necesitas en una sola computadora
-                </p>
-                <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Catalogo</a>
-                </p>
+            <div class="col p-0 m-0">
+                <button id="leftBanner" class="btn btn-outline-light btn-sm position-absolute mr-5" style="z-index: 1; top: 40%; height: 100px;"><i class="fas fa-chevron-left"></i></button>
+                <div id="bannerContainer" class="jumbotron solutions text-light position-relative p-5">
+                    <h1 id="bannerTitle" class="display-4">Computadoras</h1>
+                    <p id="bannerDesc" class="lead">Computadoras preensambladas echas para tus necesidades. Como workstations,
+                        Videojuegos, Renderizado 3D, edicion y disenio</p>
+                    <hr class="my-4">
+                    <p id="bannerSmDesc">Todo lo que necesitas en una sola computadora
+                    </p>
+                    <p id="bannerBtn" class="lead mt-5">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">Catalogo</a>
+                    </p>
+                </div>
+                <button id="rightBanner" class="btn btn-outline-light btn-sm position-absolute ml-5" style="z-index: 1; top: 40%; height: 100px; right: 0px;"><i class="fas fa-chevron-right"></i></button>
             </div>
-           </div>
         </div>
         <!-- PC BUILDS CAROUSEL -->
+        <div class="row-expand-lg">
+            <h2 class="text-center m-5">Nuestas Computadoras</h2>
+        </div>
         <div class="row-expand-lg">
             <div class="col">
                 <div class="d-flex justify-content-center">
@@ -110,19 +116,37 @@
                     <div class="card" style="width: 18rem;">
                         <img src="assets/img/indexImg/nzxt.jpg" alt="Image" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-tittle">Computers 1</h5>
-                            <p class="card-text">Some quick text</p>
-                            <a href="#" class="btn btn-primary">Go somwhere</a>
-                        </div>
+                            <p class="card-text">Cupcake ipsum dolor sit amet sugar plum powder gummies chupa chups. Jujubes cake chocolate cake oat cake candy. Liquorice tiramisu topping.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#" class="btn btn-primary mb-2">Buy</a>
+                                    <a href="#" class="btn btn-primary">Add to cart</a>
+                                </div>
+                                <div class="col">
+                                    <p>$25,500</p>
+                                </div>
+                            </div>
+                        </div>                        
                     </div>
                     <!-- HERE ENDS -->
                     <div class="card" style="width: 18rem;">
+                        <div class="card-header bg-success">
+                           <!--  <h2 class="text-center border-rounded" style="font-size: 18px; margin:0px;">Oferta</h2> -->
+                        </div>
                         <img src="assets/img/indexImg/nzxt.jpg" alt="Image" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-tittle">Computers 2</h5>
-                            <p class="card-text">Some quick text</p>
-                            <a href="#" class="btn btn-primary">Go somwhere</a>
-                        </div>
+                            <p class="card-text">Cupcake ipsum dolor sit amet sugar plum powder gummies chupa chups. Jujubes cake chocolate cake oat cake candy. Liquorice tiramisu topping.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#" class="btn btn-primary mb-2">Buy</a>
+                                    <a href="#" class="btn btn-primary">Add to cart</a>
+                                </div>
+                                <div class="col">
+                                    <p>$25,500</p>
+                                    <p><strike>$30,000</strike></p>
+                                </div>
+                            </div>
+                        </div>                        
                     </div>
                     <div class="card" style="width: 18rem;">
                         <img src="assets/img/indexImg/nzxt.jpg" alt="Image" class="card-img-top">
@@ -170,7 +194,7 @@
                             <h5 class="card-tittle">Computers 8</h5>
                             <p class="card-text">Some quick text</p>
                             <a href="#" class="btn btn-primary">Go somwhere</a>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="card" style="width: 18rem;">
                         <img src="assets/img/indexImg/nzxt.jpg" alt="Image" class="card-img-top">
@@ -192,7 +216,7 @@
                 </div>
             </div>
         </div>
-        <div class="row-expand mt-lg-5">
+        <!--   <div class="row-expand my-lg-5">
             <div class="col p-0 m-0">
                 <div class="jumbotron store text-light position-relative">
                     <h1 class="display-4">Computadoras</h1>
@@ -205,8 +229,8 @@
                     </p>
                 </div>
             </div>
-        </div>
-        <footer>
+        </div> -->
+        <footer class="mt-5">
             <div class="row m-1 paymentMethods">
                 <div class="col pl-5">
                     <img src="assets/img/icons/paypa-icon.png" class="paymentIcon" alt="">
@@ -217,13 +241,15 @@
                     </div>
                 </div>
                 <div class="col pl-5">
-                    <img src="assets/img/icons/masterCard.png" class="paymentIcon" alt="">                    
+                    <img src="assets/img/icons/masterCard.png" class="paymentIcon" alt="">
                 </div>
                 <div class="col my-auto p-0">
                     <form class="form-inline" action="" method="post">
-                        <input id="newsTeller" class="form-control mt-2 mx-0" placeholder="Ejemplo@correo.com" type="text">
-                        <button class="btn btn-primary mx-0 mt-2" style="right: 0px"  type="submit">Suscribete</button>
-                        <small class="ml-3 mt-1" >Suscribete para las noticias, descuentos y nuevos productos</small>
+                        <input id="newsTeller" class="form-control mt-2 mx-0" placeholder="Ejemplo@correo.com"
+                            type="text">
+                        <button class="btn btn-primary mx-0 mt-2" style="right: 0px" type="submit">Suscribete</button>
+                        <small class="mt-1 text-center text-mute">Suscribete para las noticias, descuentos y nuevos
+                            productos</small>
                     </form>
                 </div>
             </div>
@@ -258,32 +284,36 @@
                 </div>
                 <div class="col footer-links">
                     <h4 class="text-center"><i class="fas fa-info-circle mr-2"></i>Acerca de nosotros</h4>
-                    <p>Tienda de computacion en monterrey, Nuevo Leon, Mexico con los equipos mas modernos de nueva generacion pc gamer y computadoras extremas de alto rendimiento, descktop, de escritorio, aio, todo en uno, slim, armadas.</p>
+                    <p>Tienda de computacion en monterrey, Nuevo Leon, Mexico con los equipos mas modernos de nueva
+                        generacion pc gamer y computadoras extremas de alto rendimiento, descktop, de escritorio, aio,
+                        todo en uno, slim, armadas.</p>
                     <a href="#" class="btn btn-primary">Saber mas</a>
                 </div>
                 <div class="col footer-links">
                     <h4 class="text-center"><i class="fas fa-phone mr-2"></i>Contactanos</h4>
-                   <ul>
-                    <li class="nav-link">
-                        <a href="#"><b>Direccion</b>: Emilio Carranza 935, Treviño, 64720 Monterrey, N.L.</a>
-                        <a href="#"><b>Horario</b> Lunes a Sabado de 12:00 - 18:00</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#"><i class="fab fa-whatsapp mr-2"></i><b>Whatsapp:</b> (81) 84 63 78 88 y (81) 31 61 38 50</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#"><i class="fas fa-phone mr-2"></i><b>Telefono:</b>(81) 83 75 21 25 Y (81) 75 23 37</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">Correo</a>
-                    </li>
-                   </ul>
+                    <ul>
+                        <li class="nav-link">
+                            <a href="#"><b>Direccion</b>: Emilio Carranza 935, Treviño, 64720 Monterrey, N.L.</a>
+                            <a href="#"><b>Horario</b> Lunes a Sabado de 12:00 - 18:00</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#"><i class="fab fa-whatsapp mr-2"></i><b>Whatsapp:</b> (81) 84 63 78 88 y (81) 31
+                                61 38 50</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#"><i class="fas fa-phone mr-2"></i><b>Telefono:</b>(81) 83 75 21 25 Y (81) 75 23
+                                37</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#">Correo</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </footer>      
+        </footer>
     </div>
 
-<!-- <footer>
+    <!-- <footer>
     <div class="container-expand">
         <div class="row">
             <div class="col">First</div>
@@ -313,7 +343,9 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-        <script src="/assets/js/slider.js"></script>
+    <script src="/assets/js/slider.js"></script>
+
+    <script src="/assets/js/main-slider.js"></script>
 </body>
 
 </html>
