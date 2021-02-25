@@ -1,12 +1,14 @@
 
 :root{
-    --primary-color: #20d7e4;
+    --primary-color: #26abb4;
+    --primary-dark-color: #292929;
 }
 
 body{
     /* overflow: hidden; */
     padding: 0px;
     margin: 0px;
+    background-color: rgb(49, 49, 49);
 }
 
 li{
@@ -17,6 +19,67 @@ li{
     background-color: var(--primary-color) !important;
 }
 
+.bg-primary-dark{
+    background-color: var(--primary-dark-color) !important;
+}
+
+/* NAVBAR SEARCH BARH */
+input[type = "search"]{
+    background-color:  rgb(219, 219, 219);
+    border: none;
+    color: black;
+}
+
+input[type = "search"]::placeholder{
+    color:  rgb(122, 122, 122);
+    margin-left: 20px; 
+}
+
+.nav-link>a{
+    color: rgb(177, 177, 177);
+    margin-right: 5px;    
+}
+
+li.nav-link>a:hover{
+    text-decoration: none;
+    color:rgb(219, 219, 219);
+}
+
+#cartShop{
+    color: var(--primary-color);
+}
+
+/* MY OWN DROPDOWNS STYLE */
+.drop{
+    position: relative;
+
+}
+
+a.drop:hover{
+    text-decoration: none;
+    color: rgb(219, 219, 219);
+}
+
+.drop-list{
+    top: 35px;
+    position: absolute;
+    background: #3d3d3d;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    list-style: none;    
+    display: none;
+    /* top: 10px; */
+}
+
+.drop-list>li{
+    margin-top: 3px;
+    color: rgb(219, 219, 219);
+    font-size: 16px;
+}
+
+
+
 .btn{
     border: none;
 }
@@ -25,17 +88,35 @@ li{
     background-color: var(--primary-color) !important;
 }
 
-.nav-link:hover{
+/* .nav-link:hover{
    border-bottom: 1px solid var(--primary-color);
    font-size: 17px;
+} */
+
+.jumbotron>h1{
+    padding: 15px;
+    font-size: 60px;
+    font-family: 'Heebo', sans-serif;
+    color: rgb(219, 219, 219);
+    background-color: var(--primary-color);
+    background-color: rgb(15, 15, 15, 0.5);
+    width: 50%;
+}
+
+.jumbotron>p{
+    padding: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    font-size: 22px;
+    background-color: rgb(15, 15, 15, 0.5);
 }
 
 .solutions{
-    height: 50vh;
-    background-image: url("/assets/img/indexImg/nzxt.jpg");
+    height: 60vh;
+    background-image: url("/assets/img/setupx4033px.webp");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;    
 }
 
 .store{
@@ -46,8 +127,68 @@ li{
     background-repeat: no-repeat;
 }
 
+/* PERSPECTIVE PC IMAGE */
+.perspective-pc{
+    height: 60vh;
+    background-image: url("/assets/img/perspective-bg.webp");    
+    background-position: 320px;
+    background-repeat: no-repeat;
+    
+}
+
+/* FEATURES LIST */
+.build-features{      
+    color: rgb(219, 219, 219);
+}
+
+.build-features div>h2{
+    padding-top: 5px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;    
+}
+
+.build-features div>p{    
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px; 
+    color: var(--primary-color);
+}
+
+.build-features>h2{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    font-family: 'hebbo', sans-serif;
+
+}
+
+.features-list{
+    border-radius: 3px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #3d3d3d;
+}
+
+.features-list>li{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.features-list>li i{
+    color: var(--primary-color);
+}
+
+/* PRODCUT CARD */
+.card{
+    background-color: #3d3d3d;
+    color: rgb(219, 219, 219);
+    font-family: 'hebbo', sans-serif;
+}
+
+#price
+
 footer{
-    /* background-color: rgb(28, 201, 245); */
+    background-color: var(--primary-dark-color);
     margin-top: 120px;
 
 }
@@ -67,7 +208,7 @@ footer{
     cursor: pointer;
 }
 
-a:hover{
+/* a:hover{
     text-decoration: none;
     color: black;
 }
@@ -79,4 +220,4 @@ a:hover{
 .footer-links ul>li.nav-link a{
     color: black;
     font-size: 14px;
-}
+} */
