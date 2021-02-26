@@ -9,6 +9,7 @@ body{
     padding: 0px;
     margin: 0px;
     background-color: rgb(49, 49, 49);
+    overflow-x: hidden;
 }
 
 li{
@@ -180,18 +181,111 @@ a.drop:hover{
 
 /* PRODCUT CARD */
 .card{
+    font-size: 20px;
+    background-color: #3d3d3d;
+    color: rgb(219, 219, 219);
+    font-family: 'hebbo', sans-serif;
+    /* font-weight: bolder; */
+}
+
+.card-body>p{
+    font-size: 18px;
     background-color: #3d3d3d;
     color: rgb(219, 219, 219);
     font-family: 'hebbo', sans-serif;
 }
 
-#price
+.news-letter{
+    width: 60%;
+    height: 40vh;
+    background-color: #3d3d3d;
+    background-image: url("https://spartangeek.com/assets/images/home/abstract-news.svg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-position-x: 195px;
+    padding: 45px;
+}
 
-footer{
+.news-letter>h3{
+    font-size: 48px;
+    font-family: 'hebbo', sans-serif;
+    font-weight: bolder;
+    color: rgb(219, 219, 219);
+}
+
+.news-letter>p{
+    font-size: 24px;
+    padding-right: 30px;
+    color: rgb(219, 219, 219);
+}
+
+.news-letter input{
+    background-color: rgb(49, 49, 49);
+    color: rgb(219, 219, 219);
+    border: none;
+    height: 40px;
+}
+
+.news-letter a{
+    color: rgb(214, 214, 214);
+}
+
+small{
+    font-size: 14px;
+    margin: 0px;
+    color: rgb(219, 219, 219);
+}
+
+/* FOOTER */
+.footer{
+    color: rgb(219, 219, 219);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+}
+
+.footer h4{    
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-family: 'hebbo', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+}
+
+h4.footer-brand{
+    font-family: 'Ubuntu', sans-serif;    
+    color: rgb(219, 219, 219);
+    font-size: 45px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.footer-link li{
+    text-align: justify;
+    font-size: 18px;
+    list-style: none;
+}
+
+.footer-link a{
+    color: rgb(219, 219, 219);
+}
+
+.footer-link a>b{
+    color: rgb(219, 219, 219);
+}
+
+#made-by{
+    color: rgb(219, 219, 219);
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* footer{
     background-color: var(--primary-dark-color);
     margin-top: 120px;
 
-}
+} */
 
 .paymentIcon{    
     max-width: 90px;
