@@ -52,12 +52,12 @@ const banners = [
         "Nuestras Soluciones",
         "Computadoras preensambladas echas para tus necesidades. Como workstations, Videojuegos, Renderizado 3D, edicion y disenio.",
         "Todo lo que necesitas en una sola computadora ",
-        "url('/assets/img/indexImg/nzxt.jpg')",
+        "url('/assets/img/setupx4033px.webp')",
         'none'
     ),
     new Banner(
         "Nuestra Tienda",
-        "Busca en nuestro catalogo de componentes, encuentra todo lo que necesitas en un solo click de distancia.",
+        "Danish bear claw jelly-o dessert macaroon candy canes oat cake dragée tiramisu. Pie ice cream sweet. Caramels tart candy canes liquorice dessert marzipan cheesecake tart chocolate..",
         "Puedes hacer tu pedido y recoger en tienda.",
         "url('/assets/img/nzxt.jpg')",
         'none'
