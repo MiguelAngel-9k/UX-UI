@@ -1,14 +1,21 @@
 
 :root{
+    --bg-color: rgb(49, 49, 49);
+    --bg-input-color: rgb(165, 165, 165);
+    --placeholder-color: rgb(122, 122, 122);
     --primary-color: #26abb4;
     --primary-dark-color: #292929;
+    --drop-list-color:  #3d3d3d;
+    --link-color: rgb(219, 219, 219);
+    --banner-text-color: rgb(15, 15, 15, 0.5);
+    --newslatter: rgb(214, 214, 214);
 }
 
 body{
     /* overflow: hidden; */
     padding: 0px;
     margin: 0px;
-    background-color: rgb(49, 49, 49);
+    background-color: var(--bg-color);
     overflow-x: hidden;
 }
 
@@ -26,13 +33,13 @@ li{
 
 /* NAVBAR SEARCH BARH */
 input[type = "search"]{
-    background-color:  rgb(219, 219, 219);
+    background-color:  var(--drop-list-color);
     border: none;
     color: black;
 }
 
 input[type = "search"]::placeholder{
-    color:  rgb(122, 122, 122);
+    color:  var(--link-color);
     margin-left: 20px; 
 }
 
@@ -43,7 +50,7 @@ input[type = "search"]::placeholder{
 
 li.nav-link>a:hover{
     text-decoration: none;
-    color:rgb(219, 219, 219);
+    color:var(--link-color);
 }
 
 #cartShop{
@@ -58,13 +65,13 @@ li.nav-link>a:hover{
 
 a.drop:hover{
     text-decoration: none;
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
 }
 
 .drop-list{
     top: 35px;
     position: absolute;
-    background: #3d3d3d;
+    background: var(--drop-list-color);
     width: 100%;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -75,7 +82,7 @@ a.drop:hover{
 
 .drop-list>li{
     margin-top: 3px;
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
     font-size: 16px;
 }
 
@@ -98,9 +105,9 @@ a.drop:hover{
     padding: 15px;
     font-size: 60px;
     font-family: 'Heebo', sans-serif;
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
     background-color: var(--primary-color);
-    background-color: rgb(15, 15, 15, 0.5);
+    background-color: var(--banner-text-color);
     width: 50%;
 }
 
@@ -109,7 +116,7 @@ a.drop:hover{
     font-family: 'Quicksand', sans-serif;
     font-weight: bolder;
     font-size: 22px;
-    background-color: rgb(15, 15, 15, 0.5);
+    background-color: var(--banner-text-color);
 }
 
 .solutions{
@@ -139,7 +146,7 @@ a.drop:hover{
 
 /* FEATURES LIST */
 .build-features{      
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
 }
 
 .build-features div>h2{
@@ -166,7 +173,7 @@ a.drop:hover{
     border-radius: 3px;
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: #3d3d3d;
+    background-color: var(--drop-list-color);
 }
 
 .features-list>li{
@@ -183,7 +190,7 @@ a.drop:hover{
 .card{
     font-size: 20px;
     background-color: #3d3d3d;
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
     font-family: 'hebbo', sans-serif;
     /* font-weight: bolder; */
 }
@@ -191,14 +198,14 @@ a.drop:hover{
 .card-body>p{
     font-size: 18px;
     background-color: #3d3d3d;
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
     font-family: 'hebbo', sans-serif;
 }
 
 .news-letter{
     width: 60%;
     height: 40vh;
-    background-color: #3d3d3d;
+    background-color: var(--drop-list-color);
     background-image: url("https://spartangeek.com/assets/images/home/abstract-news.svg");
     background-size: cover;
     background-position: top;
@@ -211,35 +218,35 @@ a.drop:hover{
     font-size: 48px;
     font-family: 'hebbo', sans-serif;
     font-weight: bolder;
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
 }
 
 .news-letter>p{
     font-size: 24px;
     padding-right: 30px;
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
 }
 
 .news-letter input{
-    background-color: rgb(49, 49, 49);
-    color: rgb(219, 219, 219);
+    background-color: var(--bg-color);
+    color:var(--link-color);
     border: none;
     height: 40px;
 }
 
 .news-letter a{
-    color: rgb(214, 214, 214);
+    color: var(--newslatter);
 }
 
 small{
     font-size: 14px;
     margin: 0px;
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
 }
 
 /* FOOTER */
 .footer{
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
     font-family: 'Quicksand', sans-serif;
     font-size: 18px;
 }
@@ -254,7 +261,7 @@ small{
 
 h4.footer-brand{
     font-family: 'Ubuntu', sans-serif;    
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
     font-size: 45px;
     text-align: center;
     font-weight: bolder;
@@ -267,15 +274,15 @@ h4.footer-brand{
 }
 
 .footer-link a{
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
 }
 
 .footer-link a>b{
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
 }
 
 #made-by{
-    color: rgb(219, 219, 219);
+    color: var(--link-color);
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     font-size: 18px;
@@ -293,7 +300,7 @@ h4.footer-brand{
 }
 
 .paymentMethods{
-    border-top: 3px solid rgb(214, 214, 214);
+    border-top: 3px solid var(--newslatter);
 }
 
 .paymentIcon:hover{

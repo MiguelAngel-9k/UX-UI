@@ -1,0 +1,39 @@
+.recent-user{
+    color: var(--link-color);
+    font-family: 'Heebo', sans-serif;
+}
+
+.recent-user .card-body>a{
+    color: var(--link-color);
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.recent-user .card:hover{
+    box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.logo{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 64px;
+    color: var(--link-color);
+}
+
+.login input{
+    height: 60px;
+    background-color: var(--drop-list-color);
+    color: var(--link-color);
+
+}
+
+.login input::placeholder{    
+    color: var(--newslatter);
+}
+
+.login button[type = "submit"]{
+    height: 50px;
+}
+
+.login>small>a{
+    color: var(--link-color);
+}
