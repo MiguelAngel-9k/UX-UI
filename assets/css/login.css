@@ -11,7 +11,15 @@
 
 .recent-user .card:hover{
     box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.2);
+    border: solid 0.1px var(--link-color);
 }
+
+.recent-user .card div>i{
+    font-size: 60px; 
+    margin-top: 50%; 
+    color: var(--primary-color);
+}
+
 
 .logo{
     font-family: 'Ubuntu', sans-serif;
