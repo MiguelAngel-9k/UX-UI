@@ -46,19 +46,94 @@
     color: var(--link-color);
 }
 
-.modal-background{
+
+.modal{
+    background: var(--drop-list-color) !important ;
+    height: 60vh;    
+    position: relative;
+}
+
+.modal>img{
+    margin: 30px;
+    position: absolute;
+    left: 22%;
+    border-radius: 120px;
+    height: 220px;
+    width: 220px;
+}
+
+#recentUserModal{
+    display: none;
+}
+
+#addUserModal{
+    display: none;
+    max-width: 350px;    
+    max-height: 380px;
+}
+
+#signInModal{
+    display: none;
+    max-width: 580px;
+    max-height: 650px;
+}
+
+#signInModal>h2{
+    font-size: 42px;
+    text-align: left;
+    font-family: 'Heebo', sans-serif;
+    color: var(--link-color);
+    font-weight: bolder;
+    margin: 15px;
+    margin-bottom: 0px;
+}
+
+#signInModal>small{
+    margin: 0px 15px 10px 15px;
+    font-family: 'Quicksand' sans-serif;
+    font-size: 18px;        
+    font-weight: lighter;
+}
+
+div.divisor{
+    height: 1px;
+    border: 0.5px solid white;
+    margin-bottom: 20px;
+}
+/* .modal>h2{
+    margin: 0px;
+    position: absolute;
+    top: 52%;
+    left: 40%;
+    border: solid 1px white;
+} */
+
+.modal-login{
+    position: absolute;
+    top: 55%;
+    width: 430px;
+}
+
+.modal-login>h2{
+    font-family: 'Heebo', sans-serif;
+    font-size: 34px;
+    color: var(--link-color);
+}
+
+
+/* .modal-background{
     position: absolute;
     background:rgba(0, 0, 0, 0.7);  
     width: 100%;
     height: 100%;
    z-index: 12;   
-}
+} */
 
 /* MODAL WITH CARD */
 .modal-background>.card{
     position: relative;
-    left: 25%;
-    top: 20%;
+    left: 40%;
+    top: 10%;
 }
 
 .modal-background>.modal-login{

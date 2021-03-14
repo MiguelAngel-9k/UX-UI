@@ -101,7 +101,7 @@
 
 
     <!-- LOGIN MODA-->
-<!--     <div class="modal-background" id="loginModal">
+    <!--     <div class="modal-background" id="loginModal">
 
         <div class="modal-login justify-content-center align-items-center">
             <div class="modal-close">
@@ -123,7 +123,7 @@
     </div> -->
 
     <!-- MODAL WITH CARDS -->
-    <div class="modal-background">
+    <!--     <div class="modal-background">
         <div class="card" style="width: 18rem;">
             <div class="card-header d-flex justify-content-end"><i class="far fa-times-circle"></i></div>
             <img class="card-img-top" src="assets/img/user.jpeg" alt="user image" style="padding: 30px; border-radius: 150px;">
@@ -146,8 +146,74 @@
                   </form>
             </div>
         </div>
+    </div> -->
+
+    <!-- JQUERY MDOAL RECENT USER-->
+    <div id="recentUserModal">
+        <img src="assets/img/user.jpeg" alt="user image">
+        <div class="modal-login">
+            <h2 class="text-center">Miguel Angel Medina</h2>
+            <form class="m-4 login" method="POST">                
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
+            </form>
+        </div>
     </div>
-    
+
+    <!-- JQUERY MODAL ADD USER -->
+    <div id="addUserModal">
+        <form class="m-4 login" method="POST">
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="tu-correo@correo.com">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
+            <small><a href="#">No tienes cuenta?, Registrate</a></small>
+        </form>
+    </div>
+
+    <!-- JQUERY SIGN IN MODAL -->
+    <div id="signInModal">
+        <h2>Registrate</h2>
+        <small>Asi de sencillo</small>
+        <div class="divisor"></div>
+        <form action="POST">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              </div>
+              <div class="form-group col-md-6">
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="form-group col-md-4">
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+    </div>
 
     <div class="container mt-5">
         <!-- LOGIN RECENT USER -->
@@ -163,7 +229,7 @@
                     <div class="card ml-4 rounded p-2" style="width: 13rem;">
                         <img class="card-img-top" src="assets/img/user.jpeg" alt="Card image cap">
                         <div class="card-body mx-auto">
-                            <a href="#" class="user-name">Miguel</a>
+                            <a id="login" href="#" class="user-name">Miguel</a>
                         </div>
                     </div>
                     <div class="card ml-4 rounded p-2" style="width: 13rem;">
@@ -172,7 +238,7 @@
                             <i class="fas fa-plus-circle mx-auto"></i>
                         </div>
                         <div class="card-body mx-auto">
-                            <a id="login" href="#" class="user-name">Agregar cuenta</a>
+                            <a id="addUser" href="#" class="user-name">Agregar cuenta</a>
                         </div>
                     </div>
                 </div>
@@ -188,7 +254,7 @@
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
-                    <small><a href="#">No tienes cuenta?, Registrate</a></small>
+                    <small><a id="signIn" href="#">No tienes cuenta?, Registrate</a></small>
                 </form>
             </div>
         </div>
