@@ -31,6 +31,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
     <title>Altatec | Iniciar sesion</title>
 </head>
 
@@ -95,9 +99,59 @@
         </div>
     </nav>
 
+
+    <!-- LOGIN MODA-->
+<!--     <div class="modal-background" id="loginModal">
+
+        <div class="modal-login justify-content-center align-items-center">
+            <div class="modal-close">
+                <a id="closeAddUser" href="#">
+                    <i class="far fa-times-circle"></i>
+                </a>
+            </div>
+            <div class="content-modal">
+               <img class="border rounded-circle" width="220" height="220" src="assets/img/user.jpeg" alt="">
+               <h2 class="text-center mt-3">Miguel</h2>
+               <form action="" class="border border-light">
+                   <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                   </div>
+                   <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
+               </form>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- MODAL WITH CARDS -->
+    <div class="modal-background">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header d-flex justify-content-end"><i class="far fa-times-circle"></i></div>
+            <img class="card-img-top" src="assets/img/user.jpeg" alt="user image" style="padding: 30px; border-radius: 150px;">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+    
+
     <div class="container mt-5">
         <!-- LOGIN RECENT USER -->
-        <div class="row" style="height: 60vh;">
+        <div class="row" style="height: 50vh;">
             <div class="col recent-user">
                 <div>
                     <!-- <img src="assets/img/icons/altatec-logo.jpg" class="m-4" alt=""> -->
@@ -118,7 +172,7 @@
                             <i class="fas fa-plus-circle mx-auto"></i>
                         </div>
                         <div class="card-body mx-auto">
-                            <a href="#" class="user-name">Agregar cuenta</a>
+                            <a id="login" href="#" class="user-name">Agregar cuenta</a>
                         </div>
                     </div>
                 </div>
@@ -127,20 +181,21 @@
             <div class="col mx-auto my-auto m-3">
                 <form class="m-4 login" method="POST">
                     <div class="form-group">
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="tu-correo@correo.com">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="tu-correo@correo.com">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
                     <small><a href="#">No tienes cuenta?, Registrate</a></small>
-                  </form>
+                </form>
             </div>
         </div>
     </div>
 
     <!-- BRANDS -->
-<!--     <div class="row-expand mt-2">
+    <!--     <div class="row-expand mt-2">
         <div class="brands justify-content-center d-flex">
             <img class="mx-4 mt-2" src="https://spartangeek.com/assets/images/brands/nvidia-logo.svg" alt="">
             <img class="mx-4 mt-2" src="https://spartangeek.com/assets/images/brands/intel-logo.svg" alt="">
@@ -234,6 +289,19 @@
             </h4>
         </div>
     </div>
+
+    <!--     <script>
+        const loginModal = $('#loginModal');
+        const loginBtn = $('#login');
+
+        loginBtn.click(()=>{
+            loginModal.modal({
+                fadeDuration: 1000,
+                fadeDelay: 0.5
+            });
+        })
+    </script> -->
+    <script src="assets/js/loginModals.js"></script>
 
 </body>
 

@@ -45,3 +45,56 @@
 .login>small>a{
     color: var(--link-color);
 }
+
+.modal-background{
+    position: absolute;
+    background:rgba(0, 0, 0, 0.7);  
+    width: 100%;
+    height: 100%;
+   z-index: 12;   
+}
+
+/* MODAL WITH CARD */
+.modal-background>.card{
+    position: relative;
+    left: 25%;
+    top: 20%;
+}
+
+.modal-background>.modal-login{
+    padding: 0px;
+    position: relative;
+    background-color: var(--drop-list-color);
+    width: 20%;
+    height: 550px;
+    left: 25%;
+    top: 20%;
+    border-radius: 15px;
+    display: flex;        
+}
+
+.modal-header{
+    border-bottom: none;    
+}
+
+.modal-close{
+    margin-top: 0px;
+    margin: 15px;
+    font-size: 30px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.modal-close>a{
+    color: var(--link-color);
+}
+
+.modal-close:hover{
+    font-size: 32px;
+}
+
+/* header.modal-login{
+    border: solid 1px black;
+    
+} */
