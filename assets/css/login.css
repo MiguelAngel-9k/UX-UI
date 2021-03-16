@@ -34,6 +34,12 @@
 
 }
 
+.login select{
+    height: 60px;
+    background-color: var(--drop-list-color);
+    color: var(--link-color);
+}
+
 .login input::placeholder{    
     color: var(--newslatter);
 }
@@ -95,10 +101,15 @@
     font-weight: lighter;
 }
 
+#signInAddress{
+    display: none;
+}
+
 div.divisor{
     height: 1px;
     border: 0.5px solid white;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 /* .modal>h2{
     margin: 0px;

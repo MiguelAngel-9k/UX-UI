@@ -32,3 +32,21 @@ singIn.click(()=>{
 		fadeDelay: 0.5
 	});
 });
+
+//address sign in animation
+const _fade = 2000;
+
+const next = $('#next');
+const back = $('#back');
+const signIngAddres = $('#signInAddress');
+const personalInfo = $('#personalInfo');
+
+next.click(()=>{
+	personalInfo.hide();
+	signIngAddres.fadeIn(_fade);
+})
+
+back.click(()=>{
+	personalInfo.fadeIn(_fade);
+	signIngAddres.hide();
+})
