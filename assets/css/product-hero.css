@@ -1,0 +1,23 @@
+
+.hero{
+    background-image: url("../img/liquid.jpg");
+    background-repeat: no-repeat;
+    background-position:top;
+    padding: 10px;
+    margin-left: 40px;    
+    margin-right: 40px;
+}
+
+.hero h1{
+    font-size: 54px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bolder;
+    color: var(--newslatter);
+}
+
+.hero p{
+    font-size: 18px;
+    font-family: 'Heebo', sans-serif;
+    color: var(--newslatter);
+    text-align: justify;
+}
