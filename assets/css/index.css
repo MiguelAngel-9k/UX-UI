@@ -9,6 +9,8 @@
     --link-color: rgb(219, 219, 219);
     --banner-text-color: rgb(15, 15, 15, 0.5);
     --newslatter: rgb(214, 214, 214);
+    --danger: rgba(107, 10, 10);
+    --bg-danger: rgba(107, 10, 10,0.5);
 }
 
 body{

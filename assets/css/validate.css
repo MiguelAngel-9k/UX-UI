@@ -1,0 +1,12 @@
+
+label.error{
+    color: var(--link-color);
+    font-size: 12px;
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 30px;    
+}
+
+input.error{
+    border: solid var(--danger);
+    background-color: var(--bg-danger);
+}
