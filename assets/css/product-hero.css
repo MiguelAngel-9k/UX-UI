@@ -13,6 +13,8 @@
     font-family: 'Heebo', sans-serif;
     font-weight: bolder;
     color: var(--newslatter);
+    border-bottom: solid 2px var(--primary-color);
+    margin-bottom: 15px;
 }
 
 .hero p{
