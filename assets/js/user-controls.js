@@ -1,25 +1,54 @@
 
+const slider = {
+    items: "",      //Array with elements of slider
+    sets: 0,        //number of sets avalible
+    position: 0,    //set position
+    max: 2,         //max of elements in slider
+
+    //Hide slider elemnts
+    hideItems(){
+        console.log('Number of sets: ' + this.sets);
+        
+        //Hide slider items
+        for(let i = 0; i < this.items.length; i++)
+        this.items[i].style.display = 'none';
+        
+        this.showItems();
+    },
+    
+    //Show slider elemnts
+    showItems(){
+        //Look the position of set and print the next and prev item of current set
+        this.items[this.position*this.max].style.display = 'flex';
+        this.items[(this.position*this.max)+1].style.display = 'flex';
+    },
+
+    //Slider constructor 
+    build(_items){//, _left, _right){
+
+        this.items = _items;
+        //this.left = _left;
+        //this.right = _right;
+
+        this.sets = Math.round(this.items.length/2);
+        this.hideItems();
+    },
+
+    move(_direccion){
+
+        if(_direccion) //go right
+            this.position + 1 >= this.sets ? this.position = this.position : this.position += 1, this.hideItems(); 
+        else //fo left
+            this.position + 1 <= 1 ? this.position = this.position : this.position -=1, this.hideItems();        
+    }
+}
+
+//direccion
+const RIGHT = true;
+const LEFT = false;
+
 //Cards
-const cards = $('.wish-card');
-let cardSets;
-let position = 0;
-
-function hideCards(){
-    //get sets of two cards    
-    cardSets = Math.round(cards.length / 2);
-    //!(cards.length % 2) ?  cardSets = cardSets : cardSets += 1; 
-
-    console.log("card sets "+cardSets);
-    for(let card = 0; card < cards.length; card++)
-        cards[card].style.display = 'none';    
-
-    showCards(position);
-}
-
-function showCards(position){
-    cards[position*2].style.display = 'flex';
-    cards[(position*2)+1].style.display = 'flex'; 
-}
+slider.build( $('.wish-card') );
 
 //BUTTONS
 const addressBtn = $('#addressBtn');
@@ -53,14 +82,6 @@ userInfoBtn.click(()=>{
     woksSpaceHeader.text('Información personal.');
 });
 
-hideCards();
-
-rightButton.click(()=>{
-    
-    position+= 1;
-
-    hideCards();
-})
-
-//1.- saber en que estado se encuentra el toggle para 
-//    borrar o escrbir en el header
+//slider buttons
+rightButton.click(()=> slider.move(RIGHT));
+leftButton.click(()=> slider.move(LEFT));

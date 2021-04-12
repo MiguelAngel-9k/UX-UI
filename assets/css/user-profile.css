@@ -46,9 +46,10 @@ div.order.card:hover{
 
 .avatar{
     width:150px;
-    height:150px;
+    height:150px;  
+    margin: 10px;  
     border-radius: 80px;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .welcome>h3{
@@ -83,4 +84,16 @@ div.order.card:hover{
 
 .wish-card a{
     color: var(--link-color);
+}
+
+label.error{
+    color: var(--link-color);
+    font-size: 12px;
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 30px;    
+}
+
+input.error{
+    border: solid var(--danger);
+    background-color: var(--bg-danger);
 }
