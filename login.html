@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BOOTSTRAP 4.6Vs -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
 
     <!-- STYLES -->
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/login.css">
-    <link rel="stylesheet" href="assets/css/validate.css">
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="assets/css/validate.css" />
 
     <!-- FONTS -->
     <!-- HEBO FONT -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo&display=swap"
+      rel="stylesheet"
+    />
     <!-- QUICKSAND FONT -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <!-- UBUNTU FONT -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- ICONS -->
-    <script src="https://kit.fontawesome.com/d11ab77a4f.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/d11ab77a4f.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Altatec</title>
 
     <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
 
     <!-- JQUERY VALIDATE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -38,72 +56,98 @@
 
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
 
     <title>Altatec | Iniciar sesion</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- NAVBAR BRAND AN TOGGLE BUTTON -->
-    <nav class="navbar navbar-expand-lg navbar-white bg-primary-dark sticky-top px-5">
-        <a href="index.html" class="navbar-brand"><img src="assets/img/icons/altatec.png" width="200" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav
+      class="navbar navbar-expand-lg navbar-white bg-primary-dark sticky-top px-5"
+    >
+      <a href="index.html" class="navbar-brand"
+        ><img src="assets/img/icons/altatec.png" width="200" alt=""
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon">Burger</span>
+      </button>
 
+      <!-- NAVBAR ITEMS AND TOGGLE CONTENT -->
+      <!-- GIVE STYLE TO SEARCH BUTTON AND SEARCH BAR-->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form
+          action=""
+          class="w-50 form-inline mx-auto position-relative"
+          method="get"
+        >
+          <input
+            class="form-control w-100"
+            type="search"
+            name=""
+            id=""
+            placeholder="Que buscas hoy?"
+          />
+          <button
+            class="position-absolute btn btn-primary"
+            style="right: 0px"
+            type="submit"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <!-- NAV ITEMS -->
+        <ul class="navbar-nav">
+          <li class="nav-link">
+            <div class="dropdown">
+              <a
+                class="drop dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Computadoras armadas
+              </a>
 
-        <!-- NAVBAR ITEMS AND TOGGLE CONTENT -->
-        <!-- GIVE STYLE TO SEARCH BUTTON AND SEARCH BAR-->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form action="" class="w-50 form-inline mx-auto position-relative" method="get">
-                <input class="form-control w-100" type="search" name="" id="" placeholder="Que buscas hoy?">
-                <button class="position-absolute btn btn-primary" style="right: 0px" type="submit"><i
-                        class="fas fa-search"></i></button>
-            </form>
-            <!-- NAV ITEMS -->
-            <ul class="navbar-nav">
-                <li class="nav-link">
-                    <a href="#" id="dropButton" class="drop">
-                        Computadoras armadas
-                        <i class="fas fa-chevron-down"></i>
-                        <ul class="drop-list" id="computersList">
-                            <li class="item">
-                                Workstations
-                            </li>
-                            <li class="item">
-                                Gamer
-                            </li>
-                        </ul>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        Tienda en linea
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <i class="fas fa-tag mr-2"></i>
-                        Ofertas
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="login.html">
-                        Iniciar Sesion
-                    </a>
-                </li>
-                </li>
-                <li class="nav-link">
-                    <a href="#" id="cartShop">
-                        0
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-link">
+            <a href="#"> Tienda en linea </a>
+          </li>
+          <li class="nav-link">
+            <a href="#">
+              <i class="fas fa-tag mr-2"></i>
+              Ofertas
+            </a>
+          </li>
+          <li class="nav-link">
+            <a href="#" class="cartShop" id="cartShop">
+              0
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
-
 
     <!-- LOGIN MODA-->
     <!--     <div class="modal-background" id="loginModal">
@@ -155,31 +199,50 @@
 
     <!-- JQUERY MDOAL RECENT USER-->
     <div id="recentUserModal">
-        <img src="assets/img/user.jpeg" alt="user image">
-        <div class="modal-login">
-            <h2 class="text-center">Miguel Angel Medina</h2>
-            <form id="recent-user-form" class="m-4 login" method="POST">
-                <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
-            </form>
-        </div>
+      <img src="assets/img/user.jpeg" alt="user image" />
+      <div class="modal-login">
+        <h2 class="text-center">Miguel Angel Medina</h2>
+        <form id="recent-user-form" class="m-4 login" method="POST">
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">
+            Iniciar sesion
+          </button>
+        </form>
+      </div>
     </div>
 
     <!-- JQUERY MODAL ADD USER -->
     <div id="addUserModal">
-        <form id="add-user-form" class="m-4 login" method="POST">
-            <div class="form-group">
-                <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
-                    placeholder="tu-correo@correo.com">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
-            <small><a href="#">No tienes cuenta?, Registrate</a></small>
-        </form>
+      <form id="add-user-form" class="m-4 login" method="POST">
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            aria-describedby="emailHelp"
+            placeholder="tu-correo@correo.com"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">
+          Iniciar sesion
+        </button>
+        <small><a href="#">No tienes cuenta?, Registrate</a></small>
+      </form>
     </div>
 
     <!-- REGISTER
@@ -203,116 +266,198 @@
     <!-- JQUERY SIGN IN MODAL -->
     <!-- PERSONAL INFORMATION -->
     <div id="signInModal">
-        <h2>Registrate</h2>
-        <small>Asi de sencillo!!</small>
-        <div class="divisor"></div>
-        <form id="personalInfo" action="POST" class="login">
-            <!-- NAME AND MIDDLE NAME -->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="middleName" name="middleName" placeholder="Segundo nombre">
-                </div>
-            </div>
-            <!-- FIRST LAST NAME AND LAST NAME -->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="FlastName" name="FlastName" placeholder="Primer Apellido">
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Segundo Apellido">
-                </div>
-            </div>
-            <!-- CONTACT NUMBER -->
-            <div class="form-group">
-                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Numero de contacto">
-            </div>
-            <!-- EMAIL AND PASSWORD -->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="tu-correo@correo.com">
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Contrasenia">
-                </div>
-            </div>
-            <a href="#" id="next" type="submit" class="btn btn-primary w-100">Siguiente</a>
-        </form>
+      <h2>Registrate</h2>
+      <small>Asi de sencillo!!</small>
+      <div class="divisor"></div>
+      <form id="personalInfo" action="POST" class="login">
+        <!-- NAME AND MIDDLE NAME -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Nombre"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="middleName"
+              name="middleName"
+              placeholder="Segundo nombre"
+            />
+          </div>
+        </div>
+        <!-- FIRST LAST NAME AND LAST NAME -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="FlastName"
+              name="FlastName"
+              placeholder="Primer Apellido"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              name="lastName"
+              placeholder="Segundo Apellido"
+            />
+          </div>
+        </div>
+        <!-- CONTACT NUMBER -->
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="Numero de contacto"
+          />
+        </div>
+        <!-- EMAIL AND PASSWORD -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="tu-correo@correo.com"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Contrasenia"
+            />
+          </div>
+        </div>
+        <a href="#" id="next" type="submit" class="btn btn-primary w-100"
+          >Siguiente</a
+        >
+      </form>
 
-        <!-- ADDRESS -->
-        <form id="signInAddress" action="POST" class="login">
-            <!-- STREET AND ZIP CODE -->
-            <div class="form-row">
-                <div class="form-group col-md-8">
-                    <input type="text" class="form-control" name="streetAddress" id="streetAddress" placeholder="calle #numero">
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="number" name="zipCode" id="zipCode" class="form-control" placeholder="codigo postal">
-                </div>
-            </div>
-            <!-- STATE AND CITY  -->
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <select name="state" id="state" class="form-control">
-                        <option value="Nuevo Leon">Nuevo Leon</option>
-                        <option value="CDMX">Ciudad de mexico</option>
-                        <option value="..."></option>
-                    </select>
-                </div>
-                <div class="forp-group col-md-6">
-                    <input type="text" name="city" id="city" class="form-control" placeholder="Ciudad">
-                </div>
-            </div>
-            <a href="#" id="back" class="btn btn-primary w-100 mt-4">Atrás</a>
-            <a href="#" id="signUp" type="submit" class="btn btn-primary w-100 mt-4">Registrate</a>
-        </form>
+      <!-- ADDRESS -->
+      <form id="signInAddress" action="POST" class="login">
+        <!-- STREET AND ZIP CODE -->
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <input
+              type="text"
+              class="form-control"
+              name="streetAddress"
+              id="streetAddress"
+              placeholder="calle #numero"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <input
+              type="number"
+              name="zipCode"
+              id="zipCode"
+              class="form-control"
+              placeholder="codigo postal"
+            />
+          </div>
+        </div>
+        <!-- STATE AND CITY  -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <select name="state" id="state" class="form-control">
+              <option value="Nuevo Leon">Nuevo Leon</option>
+              <option value="CDMX">Ciudad de mexico</option>
+              <option value="..."></option>
+            </select>
+          </div>
+          <div class="forp-group col-md-6">
+            <input
+              type="text"
+              name="city"
+              id="city"
+              class="form-control"
+              placeholder="Ciudad"
+            />
+          </div>
+        </div>
+        <a href="#" id="back" class="btn btn-primary w-100 mt-4">Atrás</a>
+        <a href="#" id="signUp" type="submit" class="btn btn-primary w-100 mt-4"
+          >Registrate</a
+        >
+      </form>
     </div>
 
     <div class="container mt-5">
-        <!-- LOGIN RECENT USER -->
-        <div class="row" style="height: 50vh;">
-            <div class="col recent-user">
-                <div>
-                    <!-- <img src="assets/img/icons/altatec-logo.jpg" class="m-4" alt=""> -->
-                    <h1 class="logo m-4">Altatec</h1>
-                </div>
-                <h1 class="ml-4 mt-2">Sesion reciente</h1>
-                <p class="ml-4">Haz click en tu usuario para iniciar sesion</p>
-                <div class="d-flex">
-                    <div class="card ml-4 rounded p-2" style="width: 13rem;">
-                        <img class="card-img-top" src="assets/img/user.jpeg" alt="Card image cap">
-                        <div class="card-body mx-auto">
-                            <a id="login" href="#" class="user-name">Miguel</a>
-                        </div>
-                    </div>
-                    <div class="card ml-4 rounded p-2" style="width: 13rem;">
-                        <!-- <img class="card-img-top" src="assets/img/plus.png" alt="Card image cap"> -->
-                        <div class="h-75 mx-auto">
-                            <i class="fas fa-plus-circle mx-auto"></i>
-                        </div>
-                        <div class="card-body mx-auto">
-                            <a id="addUser" href="#" class="user-name">Agregar cuenta</a>
-                        </div>
-                    </div>
-                </div>
+      <!-- LOGIN RECENT USER -->
+      <div class="row" style="height: 50vh">
+        <div class="col recent-user">
+          <div>
+            <!-- <img src="assets/img/icons/altatec-logo.jpg" class="m-4" alt=""> -->
+            <h1 class="logo m-4">Altatec</h1>
+          </div>
+          <h1 class="ml-4 mt-2">Sesion reciente</h1>
+          <p class="ml-4">Haz click en tu usuario para iniciar sesion</p>
+          <div class="d-flex">
+            <div class="card ml-4 rounded p-2" style="width: 13rem">
+              <img
+                class="card-img-top"
+                src="assets/img/user.jpeg"
+                alt="Card image cap"
+              />
+              <div class="card-body mx-auto">
+                <a id="login" href="#" class="user-name">Miguel</a>
+              </div>
             </div>
-            <!-- LOGIN WITH USER AND PASSWORD -->
-            <div class="col mx-auto my-auto m-3">
-                <form id="sign-in" class="m-4 login" method="POST">
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp"
-                            placeholder="tu-correo@correo.com">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Iniciar sesion</button>
-                    <small><a id="signIn" href="#">No tienes cuenta?, Registrate</a></small>
-                </form>
+            <div class="card ml-4 rounded p-2" style="width: 13rem">
+              <!-- <img class="card-img-top" src="assets/img/plus.png" alt="Card image cap"> -->
+              <div class="h-75 mx-auto">
+                <i class="fas fa-plus-circle mx-auto"></i>
+              </div>
+              <div class="card-body mx-auto">
+                <a id="addUser" href="#" class="user-name">Agregar cuenta</a>
+              </div>
             </div>
+          </div>
         </div>
+        <!-- LOGIN WITH USER AND PASSWORD -->
+        <div class="col mx-auto my-auto m-3">
+          <form id="sign-in" class="m-4 login" method="POST">
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                aria-describedby="emailHelp"
+                placeholder="tu-correo@correo.com"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="Password"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+              Iniciar sesion
+            </button>
+            <small
+              ><a id="signIn" href="#">No tienes cuenta?, Registrate</a></small
+            >
+          </form>
+        </div>
+      </div>
     </div>
 
     <!-- BRANDS -->
@@ -331,84 +476,86 @@
         </div>
     </div> -->
     <div class="row-expand my-5 p-5 pt-0">
-        <div class="row my-5 mt-0">
-            <div class="row footer">
-                <div class="col mx-auto">
-                    <h4 class="footer-brand mx-4">
-                        Altatec
-                    </h4>
-                    <ul class="footer-link">
-                        <li>
-                            Lemon drops marshmallow gummi bears cupcake tart candy canes. Candy macaroon lemon drops
-                            halvah. Cake chocolate cake tootsie roll gummies cupcake.
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h4>
-                        Computadoras Armadas
-                    </h4>
-                    <ul class="footer-link">
-                        <li>
-                            <a href="#">Workstations</a>
-                        </li>
-                        <li>
-                            <a href="#">Gamer</a>
-                        </li>
-                        <li>
-                            <a href="#">Disenio</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h4>Categorias</h4>
-                    <ul class="footer-link">
-                        <li>
-                            <a href="#">Computadoras</a>
-                        </li>
-                        <li>
-                            <a href="#">Perifericos</a>
-                        </li>
-                        <li>
-                            <a href="#">Motherboards</a>
-                        </li>
-                        <li>
-                            <a href="#">Tarjetas graficas</a>
-                        </li>
-                        <li>
-                            <a href="#">Gabinetes</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h4>Contactanos</h4>
-                    <ul class="footer-link">
-                        <li>
-                            <a href="#"><b>Direccion</b>: Emilio Carranza 935, Treviño, 64720 Monterrey, N.L.</a><br>
-                            <a href="#"><b>Horario</b> Lunes a Sabado de 12:00 - 18:00</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-whatsapp mr-2"></i><b>Whatsapp:</b> (81) 84 63 78 88 y (81) 31
-                                61 38 50</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fas fa-phone mr-2"></i><b>Telefono:</b>(81) 83 75 21 25 Y (81) 75 23
-                                37</a>
-                        </li>
-                        <li>
-                            <a href="#">Correo</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+      <div class="row my-5 mt-0">
+        <div class="row footer">
+          <div class="col mx-auto">
+            <h4 class="footer-brand mx-4">Altatec</h4>
+            <ul class="footer-link">
+              <li>
+                Lemon drops marshmallow gummi bears cupcake tart candy canes.
+                Candy macaroon lemon drops halvah. Cake chocolate cake tootsie
+                roll gummies cupcake.
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>Computadoras Armadas</h4>
+            <ul class="footer-link">
+              <li>
+                <a href="#">Workstations</a>
+              </li>
+              <li>
+                <a href="#">Gamer</a>
+              </li>
+              <li>
+                <a href="#">Disenio</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>Categorias</h4>
+            <ul class="footer-link">
+              <li>
+                <a href="#">Computadoras</a>
+              </li>
+              <li>
+                <a href="#">Perifericos</a>
+              </li>
+              <li>
+                <a href="#">Motherboards</a>
+              </li>
+              <li>
+                <a href="#">Tarjetas graficas</a>
+              </li>
+              <li>
+                <a href="#">Gabinetes</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <h4>Contactanos</h4>
+            <ul class="footer-link">
+              <li>
+                <a href="#"
+                  ><b>Direccion</b>: Emilio Carranza 935, Treviño, 64720
+                  Monterrey, N.L.</a
+                ><br />
+                <a href="#"><b>Horario</b> Lunes a Sabado de 12:00 - 18:00</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fab fa-whatsapp mr-2"></i><b>Whatsapp:</b> (81) 84
+                  63 78 88 y (81) 31 61 38 50</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-phone mr-2"></i><b>Telefono:</b>(81) 83 75
+                  21 25 Y (81) 75 23 37</a
+                >
+              </li>
+              <li>
+                <a href="#">Correo</a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
     <div class="row-expand my-3">
-        <div class="col">
-            <h4 id="made-by">
-                Made by MKM.IND
-            </h4>
-        </div>
+      <div class="col">
+        <h4 id="made-by">Made by MKM.IND</h4>
+      </div>
     </div>
 
     <!--     <script>
@@ -424,8 +571,19 @@
     </script> -->
 
     <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!--  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+    <!-- BOOSTRAP JQUERY 4.6V -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- JQUERY VALIDATE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -433,11 +591,12 @@
 
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
 
     <script src="assets/js/loginModals.js"></script>
     <script src="assets/js/validate-forms.js"></script>
-
-</body>
-
+  </body>
 </html>

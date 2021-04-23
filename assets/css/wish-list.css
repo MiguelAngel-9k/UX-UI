@@ -1,0 +1,48 @@
+a{
+    color: var(--link-color);
+}
+
+a:hover{
+    color: var(--newslatter);
+    cursor: pointer;
+}
+
+.list-header {
+  background-color: var(--drop-list-color);
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.add-button {
+  width: 60px;
+  font-size: 28px;
+  background-color: transparent;
+  border: none;
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+.stored-list {
+  height: 65px;
+  color: var(--link-color);
+  font-size: 18px;
+  font-family: "Heebo", sans-serif;
+  /* background-color: var(--bg-color); */
+  padding-left: 10px;
+  padding-top: 10px;  
+}
+
+.stored-list>small{
+    font-size: 12px;
+}
+
+.stored-list>p{
+    width: 70px;
+}
+
+.list {
+  background-color: var(--drop-list-color);
+}
