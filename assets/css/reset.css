@@ -1,5 +1,69 @@
 
+:root {
+    --dark: rgb(49, 49, 49);
+    --input-color: rgb(165, 165, 165);
+    --placeholder-color: rgb(122, 122, 122);
+    --primary-color: #26abb4;
+    --darkness: #292929;
+    --secondary-color: #3d3d3d;
+    --light: rgb(219, 219, 219);
+    --banner-text-color: rgb(15, 15, 15, 0.5);
+    --lightness: rgb(214, 214, 214);
+    --danger: rgba(107, 10, 10);
+    --bg-danger: rgba(107, 10, 10, 0.5);
 
-button.slick-prev{
+    --principal-font: 'Hebbo', sans-serif;
+    --secondary-font: 'Quicksand', sans-serif;
+
+    --link-size: 1em;
+  }
+  
+  .navbar{
+
+    background-color: var(--darkness);
+    font-family: var(--secondary-font);
+    font-size: var(--link-size);
+    color: var(--light);
     
-}
+  }
+
+  .nav-link{
+    color: var(--light);
+  }
+
+  .nav-item{
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+
+  a.nav-link:hover{
+    color: white;
+  }
+
+  [active]{
+      color: var(--primary-color);
+  }
+
+  [active]:hover{
+      color: var(--primary-color) !important;
+  }
+
+  input[type='text']{
+
+    background-color: var(--secondary-color);
+    border: none;
+
+  }
+
+  input[type="text"]::placeholder {
+    color: var(--light);
+    margin-left: 20px;
+  }
+
+  body {
+    /* overflow: hidden; */
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--dark);
+    /* overflow-x: hidden; */
+  }
