@@ -32,6 +32,10 @@
     outline: none !important;
 }
 
+ul{
+  list-style: none;
+}
+
 button:hover{
     color: var(--light) !important;
 }
@@ -118,4 +122,45 @@ button:hover{
 
 .prev:hover,.next:hover{
     font-size: 40px;
+}
+
+[bg-active]{
+
+  background-image: url("../img/perspective-bg.webp");
+  background-position: left;
+  background-repeat: no-repeat;
+
+}
+
+.row> div.col-6+div.col-6>h2{
+
+  font-family: var(--secondary-font);
+  font-size: 24px;
+  font-weight: bolder;
+  color: var(--light);
+  padding-left: 5%;
+
+}
+
+.row> div.col-6+div.col-6>h2>p{
+  color: var(--primary-color);
+}
+
+.features{
+  color: var(--lightness);
+  font-family: var(--principal-font);
+  font-size: 28px;
+  padding-left: 5%;
+}
+
+.features>div{
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  font-family: var(--secondary-font);
+  font-size: 16px;
+  padding: 2%;
+}
+
+.fa-check-circle{
+  color: var(--primary-color);
 }
