@@ -132,7 +132,7 @@ button:hover{
 
 }
 
-.row> div.col-6+div.col-6>h2{
+.row> div.col-lg-6+div.col-lg-6>h2,div.col-sm-12+div.col-lg-6>h2{
 
   font-family: var(--secondary-font);
   font-size: 24px;
@@ -142,7 +142,7 @@ button:hover{
 
 }
 
-.row> div.col-6+div.col-6>h2>p{
+.row> div.col-lg-6+div.col-lg-6>h2>p,.col-sm-12+div.col-lg-6>h2>p{
   color: var(--primary-color);
 }
 
@@ -163,4 +163,71 @@ button:hover{
 
 .fa-check-circle{
   color: var(--primary-color);
+}
+
+.card{
+  background-color: var(--secondary-color);
+  margin: 15px;
+  padding: 5px;
+}
+
+.card-text{
+  font-family: var(--principal-font);
+  font-size: 18px;
+  color: var(--light);
+}
+
+.card-body>.row>div>a.btn{
+  font-family: var(--secondary-font);
+  font-weight: bolder;
+  color: var(--light);
+  font-size: 14px;  
+  background-color: var(--primary-color);
+  margin-top: 5px;
+}
+
+.card-body>.row>div+div>p{
+  
+  font-family: var(--principal-font);
+  font-size: 16px;
+  color: var(--primary-color);
+
+}
+
+footer{
+
+  background-color: var(--secondary-color);
+
+}
+
+.news-letter{
+
+  padding: 2%;
+  color: var(--light);
+  background-image: url("https://spartangeek.com/assets/images/home/abstract-news.svg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-position-x: 195px;
+  width: 50%;
+  
+}
+
+/* .news-letter>form input[type='text']{
+  background-color: var(--secondary-color);
+} */
+
+.news-letter>h3{
+
+  font-family: var(--principal-font);
+  font-weight: bolder;
+  font-size: 42px;
+  padding: 10px;
+}
+
+.news-letter>p{
+
+  font-family: var(--secondary-font);
+  font-size: 18px;
+
 }
