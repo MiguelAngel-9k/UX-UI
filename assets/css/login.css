@@ -1,0 +1,26 @@
+
+
+.logo{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.logo~p{
+    color: var(--light);
+}
+
+.recent-users{
+    color: var(--light);
+}
+
+.login{
+    background-color: var(--darkness);
+}
+
+a{
+    color: var(--light);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--primary-color)
+}
