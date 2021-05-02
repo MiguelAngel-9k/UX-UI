@@ -32,8 +32,24 @@
     outline: none !important;
 }
 
+.fs-1{
+  font-family: var(--principal-font);
+  color: var(--light);
+}
+
+.fs-6{
+  font-family: var(--secondary-font);
+}
+
 ul{
   list-style: none;
+}
+
+.btn.btn-primary{
+
+  background-color: var(--primary-color);
+  border: none;
+
 }
 
 button:hover{
@@ -70,19 +86,35 @@ button:hover{
       color: var(--primary-color) !important;
   }
 
-  input[type='text']{
+  input[type='text'],[type='email']{
 
     background-color: var(--secondary-color);
+    font-family: var(--secondary-font);
     border: none;
+    height: 35px;
 
   }
 
-  input[type="text"]::placeholder {
+  input[type="text"]::placeholder,input[type="email"] {
     color: var(--light);
-    margin-left: 20px;
+    padding-left: 20px;
   }
 
-.jumbo{
+.jumbo{  
+  color: var(--light);
+  font-family: var(--principal-font) !important;
+  /* background-image: url("https://images10.newegg.com/BizIntell/item/11/553/11-553-048/3.jpg");  */
+  height: 50vh; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
+}
+
+.jumbo>p+p{
+  font-family: var(--secondary-font) !important;
+}
+
+/* .jumbo{
 
     font-family: var(--principal-font);
 }
@@ -112,7 +144,7 @@ button:hover{
     background-color: var(--primary-color);
     outline: none;
 
-}
+} */
 
 .prev,.next{
     font-size: 36px;
@@ -186,7 +218,7 @@ button:hover{
   margin-top: 5px;
 }
 
-.card-body>.row>div+div>p{
+.card-body>.row>div>p{
   
   font-family: var(--principal-font);
   font-size: 16px;
@@ -194,22 +226,16 @@ button:hover{
 
 }
 
-footer{
-
-  background-color: var(--secondary-color);
-
-}
 
 .news-letter{
 
   padding: 2%;
   color: var(--light);
-  background-image: url("https://spartangeek.com/assets/images/home/abstract-news.svg");
+  background-image: url("../img/Oval.svg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   background-position-x: 195px;
-  width: 50%;
   
 }
 
@@ -218,7 +244,7 @@ footer{
 } */
 
 .news-letter>h3{
-
+  
   font-family: var(--principal-font);
   font-weight: bolder;
   font-size: 42px;
@@ -226,8 +252,95 @@ footer{
 }
 
 .news-letter>p{
-
+  
   font-family: var(--secondary-font);
   font-size: 18px;
 
+}
+
+.news-letter>small{
+
+  font-family: var(--secondary-font);
+  font-weight: lighter;
+  font-size: 14px;
+
+}
+
+.news-letter>small>a{
+
+  text-decoration: none;
+  color: var(--lightness);
+  font-weight: bold;
+}
+
+footer{
+  background-color: var(--secondary-color);
+  padding: 0px;
+  margin: 0px;
+  font-family: var(--secondary-font);
+  color: var(--light);
+  font-size: 18px;
+}
+
+f/* ooter a{
+
+  text-decoration: none;
+  color: var(--light);
+
+}
+
+footer a:hover{
+
+  color: red;
+
+}
+
+footer h4{
+
+  font-family: var(--principal-font);
+  font-weight: bold;
+
+}
+
+[brand]{
+
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 34px;
+
+} */
+
+.footer {
+  color: var(--link-color);
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+}
+
+.footer h4 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-family: "hebbo", sans-serif;
+  font-weight: bolder;
+  text-align: center;
+}
+
+h4.footer-brand {
+  font-family: "Ubuntu", sans-serif;
+  color: var(--link-color);
+  font-size: 45px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.footer-link li {
+  text-align: justify;
+  font-size: 18px;
+  list-style: none;
+}
+
+.footer-link a {
+  color: var(--link-color);
+}
+
+.footer-link a > b {
+  color: var(--link-color);
 }
