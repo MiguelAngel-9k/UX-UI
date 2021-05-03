@@ -24,3 +24,16 @@ a{
 a:hover{
     color: var(--primary-color)
 }
+
+.swal2-popup.swal2-modal{
+    background-color: var(--darkness);
+}
+
+.swal2-title{
+    font-family: var(--principal-font) !important;
+    color: var(--light) !important;
+}
+
+.swal2-confirm{
+    background-color: var(--primary-color) !important;
+}
