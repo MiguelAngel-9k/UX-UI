@@ -1,0 +1,25 @@
+/* .card{
+    margin: 0px;
+    padding: 0px;
+} */
+
+.category{
+    overflow-x: auto;
+}
+
+.category-card{
+    padding: 2%;
+    margin: 2%;
+    color: var(--light);
+    font-family: var(--principal-font);
+    background-color: var(--secondary-color);
+    border-radius: 10%;
+}
+
+.category-card:hover{
+    box-shadow: 10px 10px 5px var(--darkness);
+}
+
+.icon{
+    color: var(--primary-color);
+}
