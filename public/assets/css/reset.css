@@ -86,7 +86,7 @@ button:hover{
       color: var(--primary-color) !important;
   }
 
-  input[type='text'],[type='email']{
+  input[type='text'],input[type='email'], input[type="password"]{
 
     background-color: var(--secondary-color);
     font-family: var(--secondary-font);
@@ -95,7 +95,7 @@ button:hover{
 
   }
 
-  input[type="text"]::placeholder,input[type="email"] {
+  input[type="text"]::placeholder,input[type="email"]::placeholder,input[type="password"]::placeholder {
     color: var(--light);
     padding-left: 20px;
   }

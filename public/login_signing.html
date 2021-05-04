@@ -11,8 +11,8 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
 
   <!-- JQUERY SWEETALERT -->
-  <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.css">
-  <link rel="stylesheet" href="node_modules/@sweetalert2/theme-dark/dark.min.css">
+  <!-- <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.css"> -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- SLICK CAROUSEL CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
@@ -117,7 +117,7 @@
             <div class="card p-2" style="width: 10rem">
               <img src="assets/img/real-user.jpg" class="img-fluid avatar" width="200" alt="" />
               <div class="body-text m-3 fs-6 text-center">
-                <button onclick="loginModal()" id="modal-button">Miguel</button>
+                <button class="modalButton" onclick="signInModal()" id="modal-button">Miguel</button>
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@
             <div class="card p-2" style="width: 10rem">
               <img src="assets/img/plus.png" class="img-fluid p-5 avatar" width="200" alt="" />
               <div class="body-text m-3 fs-6 text-center">
-                <a href="#">Iniciar sesion</a>
+                <button class="modalButton" onclick="addAcountModal()">Iniciar sesion</button>
               </div>
             </div>
           </div>
@@ -135,12 +135,12 @@
       <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
         <div class="card login p-4">
           <form class="form-group my-auto" action="" method="post">
-            <input type="email" class="form-control my-4" placeholder="Tu-coreo@dominio.com" />
-            <input type="password" class="form-control my-4" placeholder="Contraseña" />
-            <button class="btn btn-primary w-100">Iniciar sesión</button>
-            <small class="border-1 border-bottom border-light"><a href="#">¿Olvidaste tu Contraseña?</a></small>
-            <button class="btn btn-primary w-100">Crear cuenta</button>
+            <input name="logInEmail" id="logInEmail" type="email" class="form-control my-4" placeholder="Tu-coreo@dominio.com" />
+            <input name="logInpassword" id="logInpassword" type="password" class="form-control my-4" placeholder="Contraseña" />
+            <a class="btn btn-primary w-100" id="send">Iniciar sesión</a>
           </form>
+          <small class="border-1 border-bottom border-light mt-3"><a href="#">¿Olvidaste tu Contraseña?</a></small>
+          <button onclick="loginModal()" class="btn btn-primary mt-3 w-100">Crear cuenta</button>
         </div>
       </div>
     </div>
@@ -227,50 +227,12 @@
   <!-- JQUERY -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- SWEETALERT -->
-  <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<!--   <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script> -->
+  <!-- JQUERY VALIDATE -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
-  <script>
-
-
-    const loginModal = async()=>{
-
-      const { value: formValues } = await Swal.fire({
-        title: 'Registrate',
-        html:
-          '<input name="name" id="name" type="text" class="swal2-input" placeholder = "Nombre">' +
-          '<input name="midlname" type="text" id="midlname" class="swal2-input" placeholder = "Apellido paterno">' +
-          '<input name="fLastName" type="text" id="fLastName" class="swal2-input" placeholder = "Apellido paterno">' +
-          '<input name="lastName" type="text" id="lastName" class="swal2-input" placeholder = "Apellido materno">' +
-          '<input name="email" type="email" id="email" class="swal2-input" placeholder = "tu-correo@dominio.com">' +
-          '<input name="password" type="password" id="password" class="swal2-input" placeholder = "Contrasnia">',
-
-        focusConfirm: false,
-        preConfirm: () => {
-          return [
-            document.getElementById('name').value,
-            document.getElementById('midlname').value,
-            document.getElementById('fLastName').value,
-            document.getElementById('lastName').value,
-            document.getElementById('email').value,
-            document.getElementById('password').value
-          ]
-        },
-
-        preDeny: ()=>{
-          return undefined;
-        }
-      })
-      
-      if (formValues) {
-        Swal.fire(JSON.stringify(formValues))
-        console.log(formValues);
-      }
-    }
-
-
-
-
-  </script>
+  <!-- MY SWEET MODALS  -->
+  <script src="assets/js/modals.js"></script>
 
 
 

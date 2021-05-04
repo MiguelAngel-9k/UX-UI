@@ -37,3 +37,11 @@ a:hover{
 .swal2-confirm{
     background-color: var(--primary-color) !important;
 }
+
+.modalButton{
+
+    border: none;
+    background-color: transparent;
+    color: var(--light);
+
+}
