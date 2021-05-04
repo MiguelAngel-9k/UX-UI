@@ -118,6 +118,17 @@ button:hover{
   background-size: cover;
 }
 
+.banner{
+  background-image: url('https://images10.newegg.com/BizIntell/item/11/553/11-553-048/3.jpg');
+  color: var(--light);
+  font-family: var(--principal-font) !important;
+  /* background-image: url("https://images10.newegg.com/BizIntell/item/11/553/11-553-048/3.jpg");  */
+  height: 50vh; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: cover;
+}
+
 .jumbo>p+p{
   font-family: var(--secondary-font) !important;
 }
