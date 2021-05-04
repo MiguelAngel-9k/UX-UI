@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQUERY MODAL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="" id="modal">
+        <h1>Soy un modal</h1>        
+    </div>
+
+    <button id="button">Soy un modal</button>
+
+    <script>
+        $('#button').click(()=>{
+            $('#modal').modal();
+            //alert('soy un modal');
+        })
+    </script>
+</body>
+
+</html>

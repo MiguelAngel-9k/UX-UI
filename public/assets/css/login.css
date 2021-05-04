@@ -1,0 +1,47 @@
+
+
+.logo{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.logo~p{
+    color: var(--light);
+}
+
+.recent-users{
+    color: var(--light);
+}
+
+.login{
+    background-color: var(--darkness);
+}
+
+a{
+    color: var(--light);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--primary-color)
+}
+
+.swal2-popup.swal2-modal{
+    background-color: var(--darkness);
+}
+
+.swal2-title{
+    font-family: var(--principal-font) !important;
+    color: var(--light) !important;
+}
+
+.swal2-confirm{
+    background-color: var(--primary-color) !important;
+}
+
+.modalButton{
+
+    border: none;
+    background-color: transparent;
+    color: var(--light);
+
+}
