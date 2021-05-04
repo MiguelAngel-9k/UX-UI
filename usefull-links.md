@@ -66,3 +66,65 @@
     </div>
 
 `
+
+# **User table**
+`
+    <table class="table caption-top table bg-darkness font-secondary table-lg m-5 p-5">
+                    <caption class="fs-1 text-center m-3 fw-bold">Carrito de compras <i class="fas fa-shopping-cart"></i>
+                    </caption>
+                    <thead class="fs-2 text-center font-secondary text-primary">
+                        <tr>
+                            <th scope="col" hidden>#</th>
+                            <th scope="col">Articulo</th>
+                            <th scope="col">Precio unitario</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" hidden>1</th>
+                            <td class="text-center"><span><img src="assets/img/red chair.png" width="80" alt=""> Silla
+                                    Gamer</span></td>
+                            <td class="text-center">$3,000</td>
+                            <td class="w-25 text-center">
+                                <span>
+                                    <i class="fas fa-minus"></i>
+                                    <input type="text" value="1" readonly>
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </td>
+                            <th class="text-center"><i class="fas fa-trash"></i></th>
+                        </tr>
+                        <tr>
+                            <th scope="row" hidden>2</th>
+                            <td class="text-center"><span><img src="assets/img/pc.png" width="80" alt=""> Silla Gamer</span>
+                            </td>
+                            <td class="text-center">$25,600</td>
+                            <td class="w-25 text-center">
+                                <span>
+                                    <i class="fas fa-minus"></i>
+                                    <input type="text" value="1" readonly>
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </td>
+                            <th class="text-center"><i class="fas fa-trash"></i></th>
+                        </tr>
+                        <tr>
+                            <th scope="row" hidden>3</th>
+                            <td class="text-center"><span><img src="assets/img/XZ4010.png" width="80" alt=""> Silla Gamer</span>
+                            </td>
+                            <td class="text-center">$3,000</td>
+                            <td class="w-25 text-center">
+                                <span>
+                                    <i class="fas fa-minus"></i>
+                                    <input type="text" value="1" readonly>
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </td>
+                            <th class="text-center"><i class="fas fa-trash"></i></th>
+                        </tr>
+                    </tbody>
+                </table>
+`

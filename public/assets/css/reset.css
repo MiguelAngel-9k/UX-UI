@@ -41,6 +41,10 @@
   font-family: var(--principal-font);
 }
 
+.font-secondary{
+  font-family: var(--secondary-font);
+}
+
 .fs-6{
   font-family: var(--secondary-font);
 }
