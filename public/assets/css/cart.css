@@ -1,0 +1,11 @@
+button.trash{
+
+    background-color: transparent;
+    border: none;
+    color: var(--light);
+
+}
+
+button.trash:hover{
+    color: var(--primary-color)!important;
+}
