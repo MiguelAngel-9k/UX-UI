@@ -1,0 +1,29 @@
+
+
+.list-header{
+
+    color: var(--light);
+    font-family: var(--secondary-font);
+
+}
+
+.list-header img{
+    border-radius: 60px;
+}
+
+.agregar-lista{
+    background-color: transparent;
+    border: none;
+}
+
+.agregar-lista:hover{
+    color: var(--light);
+}
+
+.list-group-item>a:hover{
+    color: var(--primary-color) !important;
+}
+
+a{
+    text-decoration: none;
+}

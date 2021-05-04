@@ -28,6 +28,10 @@
     /* overflow-x: hidden; */
   }
 
+  a{
+    text-decoration: none;
+}
+
 *:focus{
     outline: none !important;
 }
@@ -61,6 +65,11 @@
   background-color: var(--primary-color) !important;
   
 }
+
+.bg-dark{
+  background-color: var(--secondary-color);
+}
+
 .bg-darkness{
   background-color: var(--darkness);
   color: var(--lightness);
