@@ -41,6 +41,14 @@
   font-family: var(--secondary-font);
 }
 
+.text-primary{
+  color: var(--primary-color)!important;
+}
+
+.bg-primary{
+  background-color: var(--primary-color) !important;
+}
+
 ul{
   list-style: none;
 }
@@ -203,6 +211,13 @@ button:hover{
   padding: 5px;
 }
 
+.card-header{
+
+  color: var(--light);
+  font-family: var(--principal-font);
+
+}
+
 .card-text{
   font-family: var(--principal-font);
   font-size: 18px;
@@ -223,6 +238,11 @@ button:hover{
   font-family: var(--principal-font);
   font-size: 16px;
   color: var(--primary-color);
+
+}
+
+div.card[active]:hover{
+  box-shadow: 10px 10px 5px var(--darkness);
 
 }
 
