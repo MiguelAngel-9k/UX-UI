@@ -1,0 +1,34 @@
+
+
+input[type="radio"]{
+    display: none;
+}
+
+label{
+    color: var(--darkness);
+}
+
+.rate{
+
+    direction: rtl;
+    unicode-bidi: bidi-override;
+
+}
+
+.rate label{
+    font-family: var(--secondary-font);
+    font-size: 18px;    
+}
+
+label:hover,label:hover ~ label{
+    color:orange;
+}
+
+input[type="radio"]:checked ~ label {
+    color: orange;
+}
+
+
+.avatar{
+    border-radius: 90px;
+}
