@@ -1,0 +1,11 @@
+
+.avatar{
+    border-radius: 90px;
+}
+
+.recent-purchase{
+
+    height: 60vh;
+    overflow-y: auto;
+
+}
