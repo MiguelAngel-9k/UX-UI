@@ -9,3 +9,17 @@
     overflow-y: auto;
 
 }
+
+.login{
+    
+}
+
+form input{
+    color: var(--light);
+}
+
+form label{
+    font-family: var(--principal-font);
+    text-align: right;
+    color: var(--primary-color);
+}

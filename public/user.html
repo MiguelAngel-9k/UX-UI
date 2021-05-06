@@ -131,14 +131,201 @@
             </div>
             <!-- USUARIO -->
             <div class="col-lg-10 p-4">
-                <span>
-                    <img src="assets/img/real-user.jpg" class="img-fluid m-2 avatar" width="100" alt="">
-                    <p class="d-inline fs-1 fw-bold text-primary font-secondary text-capitalize">Buenos dias </p>
-                    <h2 class="d-inline fs-1 text-capitalize font-primary fw-bold">
-                        Juan Hernandez Moreno
-                    </h2>
-                </span>
+                <div class="row broder border-bottom border-2 border-light">
+                    <span>
+                        <img src="assets/img/real-user.jpg" class="img-fluid m-2 avatar" width="100" alt="">
+                        <p class="d-inline fs-1 fw-bold text-primary font-secondary text-capitalize">Buenos dias </p>
+                        <h2 class="d-inline fs-1 text-capitalize font-primary fw-bold">
+                            Juan Hernandez Moreno
+                        </h2>
+                    </span>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span class="p-2">
+                            <p class="fs-3 text-center text-primary font-secondary fw-bold">
+                                <i class="fas fa-list mx-1"></i>
+                                Tus lista de desos
+                            </p>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span class="p-2">
+                            <p class="fs-3 text-center text-primary font-secondary fw-bold">
+                                <i class="fas fa-box mx-1"></i>
+                                Compras
+                            </p>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span class="p-2">
+                            <p class="fs-3 text-center text-primary font-secondary fw-bold">
+                                <i class="fas fa-truck mx-1"></i>
+                                Dirección de envio
+                            </p>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span class="p-2">
+                            <p class="fs-3 text-center text-primary font-secondary fw-bold">
+                                <i class="fas fa-user mx-1"></i>
+                                Infomración personal
+                            </p>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex col-lg-5 col-xs-12">
+                        <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="card">
+                            <img src="assets/img/red chair.png" class="img-fluid" style="width: 18rem;" alt="">
+                            <div class="card-body">
+                                <p class="card-text fs-6 d-inline">Computadoras</p>
+                                <button class="btn btn-primary d-inline mx-2">Ver</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="assets/img/red chair.png" class="img-fluid" style="width: 18rem;" alt="">
+                            <div class="card-body">
+                                <p class="card-text fs-6 d-inline">Computadoras</p>
+                                <button class="btn btn-primary d-inline mx-2">Ver</button>
+                            </div>
+                        </div>
+                        <button class="prev"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="col-lg-7 col-xs-12">
+                       <!--  <h2 class="fs-3 mb-1 fw-bold text-secondary font-primary text-center">Infomración personal</h2> -->
+                        <!-- USER PERSONAL INFO -->
+                        <!-- <form action="" class="login">
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                        value="email@example.com">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="inputPassword">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputName" class="col-sm-2 col-form-label">Nombre</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="updateName" class="form-control" id="name">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputPlastname" class="col-sm-2 col-form-label">Segundo nombre</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="updatePlastName" class="form-control" id="plastName">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputName" class="col-sm-2 col-form-label">Apellido paterno</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="updateMlastName" class="form-control" id="mlaast">
+                                </div>
+                            </div>
+                            <a href="#" id="back" class="btn btn-primary w-100 mt-4">Guardar</a>
+
+                        </form> -->
+                        <h2 class="fs-3 mb-1 fw-bold text-secondary font-primary text-center">Dirección de envio</h2>
+                        <!-- USER ADRESS INFO --> 
+                        <form action="">
+                            <div class="mb-3 row">
+                                <label for="number" class="col-sm-2 col-form-label">Numero</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="number" placeholder="#">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="street" class="col-sm-2 col-form-label">Calle</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="street" class="form-control" id="street">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="city" class="col-sm-2 col-form-label">Municipio</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="city" class="form-control" id="city">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="state" class="col-sm-2 col-form-label">Estado</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="state" class="form-control" id="state">
+                                </div>
+                            </div>
+                            <a href="#" id="back" class="btn btn-primary w-100 mt-4">Guardar</a>
+
+                        </form>                        
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="row">
+            <table class="table caption-top table bg-darkness font-secondary table-lg p-5">
+                <caption class="fs-1 text-center m-3 fw-bold">Compras recientes
+                </caption>
+                <thead class="fs-2 text-center font-secondary text-primary">
+                    <tr>
+                        <th scope="col" hidden>#</th>
+                        <th scope="col">Articulo</th>
+                        <th scope="col">Precio unitario</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" hidden>1</th>
+                        <td class="text-center"><span><img src="assets/img/red chair.png" width="80" alt=""> Silla
+                                Gamer</span></td>
+                        <td class="text-center">$3,000</td>
+                        <td class="w-25 text-center">
+                            <span>
+                                <i class="fas fa-minus"></i>
+                                <input type="text" value="1" readonly>
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </td>
+                        <th class="text-center"><button class="trash"><i class="fas fa-trash"></i></button></th>
+                    </tr>
+                    <tr>
+                        <th scope="row" hidden>2</th>
+                        <td class="text-center"><span><img src="assets/img/pc.png" width="80" alt=""> Silla
+                                Gamer</span>
+                        </td>
+                        <td class="text-center">$25,600</td>
+                        <td class="w-25 text-center">
+                            <span>
+                                <i class="fas fa-minus"></i>
+                                <input type="text" value="1" readonly>
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </td>
+                        <th class="text-center"><button class="trash"><i class="fas fa-trash"></i></button></th>
+                    </tr>
+                    <tr>
+                        <th scope="row" hidden>3</th>
+                        <td class="text-center"><span><img src="assets/img/XZ4010.png" width="80" alt=""> Silla
+                                Gamer</span>
+                        </td>
+                        <td class="text-center">$3,000</td>
+                        <td class="w-25 text-center">
+                            <span>
+                                <i class="fas fa-minus"></i>
+                                <input type="text" value="1" readonly>
+                                <i class="fas fa-plus"></i>
+                            </span>
+                        </td>
+                        <th class="text-center"><button class="trash"><i class="fas fa-trash"></i></button></th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
