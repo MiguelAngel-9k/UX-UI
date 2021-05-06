@@ -194,7 +194,9 @@ button:hover{
 .prev,.next{
     font-size: 36px;
     color: var(--primary-color);
-    margin: 3%;    
+    /* margin: 3%;   */ 
+    background-color: transparent; 
+    border: none;
 }
 
 .prev:hover,.next:hover{
