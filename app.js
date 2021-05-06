@@ -1,4 +1,10 @@
-const express = require('express');
+require('dotenv').config();
+const Server = require('./helpers/server');
+
+const server = new Server();
+server.listen();
+
+/* const express = require('express');
 //const cors = require('cors');
 const app = express();
 
@@ -21,4 +27,4 @@ app.post('/login',(req,res)=>{
 
 })
 
-app.listen(3000);
+app.listen(3000,()=> console.log('Listen on port 3000')); */
