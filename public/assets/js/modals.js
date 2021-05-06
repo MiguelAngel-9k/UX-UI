@@ -103,18 +103,30 @@ const loginModal = async () => {
                 }
             }
 
-        })
+        })      
 
         if ($('#signUp').valid()){
-            $.ajax({
-                type: "POST",
-                url: "localhost:3000/login",
-                data: formValues,
-                success: (res)=>{
-                    console.log(res);
-                },
-                dataType: dataType
-              });
+
+            const values ={
+                name: formValues[0],
+                sName: formValues[1],
+                plastName: formValues[2],
+                mLastName: formValues[3],
+                email: formValues[4],
+                password: formValues[5]
+            }
+
+            console.log(values);
+           $.ajax({
+
+            url: `/login`,
+            type: 'POST',
+            data: values,
+            success: function(data){
+                console.log(data);
+            }
+
+           })
         }//enviar inforamcion pora ajax
         else {
             Swal.fire({

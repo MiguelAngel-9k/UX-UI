@@ -1,39 +1,39 @@
 const { request, response } = require('express');
-const Connection = require('../connection/connection.db');
+const conn = require('../connection/connection.db');
 
-const connection = new Connection();
 
 
 const getUser = (req = request, res = response) => {
-    res.send('Hola desde el usuario');
+    res.render('login');
 }
 
 const newUser = (req = request, res = response) => {
 
     const { body } = req;
 
-    connection.connect();
+    try {
+        conn.query(`insert into user(
+            email,
+            user_name,
+            s_name,
+            m_lastName,
+            p_lastName,
+            user_password
+        ) values(?,?,?,?,?,?)`, [body.email ,body.name, body.sName, body.mLastName, body.pLastName, body.password], (err, result) => {
 
+            if (err) {
+                console.log(err);
+                return;
+            }
 
-    if(!connection){
-        console.log('Conexion fallida');
-        return
-    }
-
-    connection.connection.query(`insert into user (email) values('${body.email}')`,(err, row) => {
-
-        if(err){
-            console.log(err);
+            console.log(result);
+            res.send(result);
             return;
-        }
-
-        console.log(row)
-        res.send(body.email);
-
-    })
-    connection.disconnect();
-
-    return;
+        });
+    } catch (error) {
+        console.log(error);
+        return;
+    }
 }
 
 

@@ -1,36 +1,22 @@
 const mysql = require('mysql');
-class Connection {
 
-    constructor(){
+connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'admin',
+    database: 'altatec_ecomer',
+    port: 3306
+});
 
-        this.connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: 'admin',
-            database: 'altatec_ecomer',
-            port: 3306
-        })
-
+connection.connect((err)=> {
+    if (err) {
+        console.error('error connecting: ' + err.stack);
+        return;
     }
 
-    async connect(){
-        
-        this.connection.connect((err)=>{
-            if(err){
-                console.log(err);
-                return false;
-            }else{
-                console.log('Conexion exitosa');
-                return true;
-            }
+    console.log('Conectado\n','connected as id ' + connection.threadId);
+});
 
-        })
-    }
+//connection.end();
 
-    disconnect(){
-        this.connection.end();
-    }
-
-}
-
-module.exports = Connection
+module.exports = connection;
