@@ -104,6 +104,8 @@ insert into `user`(
     'Ortiz',
     '123'
 );
+use altatec_ecomer
+
 #modo no seguro
 SET SQL_SAFE_UPDATES = 0;
 #modo seguro
@@ -113,3 +115,42 @@ use altatec_ecomer;
 select * from user;
 delete from user;
 
+#-------------------------------------Adding a product-------------------------------------------------------
+insert into product (price, discharge_date, description, nombre) values ('23000.00', curdate(), 'Computadora nueva', 'I600 MKV')
+select * from product
+
+#---------------------------------------product images-------------------------------------------------------
+insert into product_image (image, dateImg, prodName, prodId) values('C:\Users\mike_\OneDrive\Escritorio\jsExercise\WEB-APP\UX-UI\public\assets\img\gladius.png',curdate(), 'I600 MKV', 1)
+select * from product_image
+#------------------------------------Adding a new list--------------------------------------
+insert into wish_list (user_email, name, discharge_date) values ('mike_wiii@hotmail.com', 'Computadoras', curdate());
+select * from wish_list;
+
+#-------------------------------Adding items into list---------------------------------------
+insert into add_product_list (list_name, list_id, prodName, prodId) values ('Computadoras', 1, 'I600 MKV',1)
+select*from add_product_list
+#-------------------------------------Purchase---------------------------------------------------------------
+insert into purchases(user_email, fecha, prodName, prodId) values ('mike_wiii@hotmail.com', curdate(), 'I600 MKV', 1)
+select*from purchases
+
+#-------------------------------------------------------LOGIN PROCEDURE----------------------------------------
+#informacion del usuario
+#Domicilio si es que tiene uno
+#Compras recientes si es que hay compras
+#Listas de desos si es que tiene
+
+set @joinLevel = 0;
+#SET @joinLevel = @joinLevel + 1;
+#select @joinLevel;
+
+select adress.adress_number as Numeber, adress.street as street, adress.city as city, adress.state as state, adress.idAddress,
+		user.email as email, user.user_name as name, user.s_name as SegName, user.m_lastName as FLastName, user.p_lastName as MLastName, user.phone as phone, user.user_password as password
+from user
+join adress on adress.user_email = user.email
+
+set @joinLevel = @joinLevel + (select if (exists(select idAddress from adress where user_email = 'mike_wiii@hotmail.com'),1,0));
+set @joinLevel = @joinLevel + (select if (exists(select idAddress from adress where user_email = 'mike_wiii@hotmail.com'),1,0));
+select @joinLevel;
+	
+
+	

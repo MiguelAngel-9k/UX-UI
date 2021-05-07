@@ -134,10 +134,10 @@
       <!-- LOGIN FORM -->
       <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
         <div class="card login p-4">
-          <form class="form-group my-auto" action="" method="post">
+          <form class="form-group my-auto" action="login/signIn" method="post">
             <input name="logInEmail" id="logInEmail" type="email" class="form-control my-4" placeholder="Tu-coreo@dominio.com" />
             <input name="logInpassword" id="logInpassword" type="password" class="form-control my-4" placeholder="Contraseña" />
-            <a class="btn btn-primary w-100" id="send">Iniciar sesión</a>
+            <button type="submit" class="btn btn-primary w-100" id="send">Iniciar sesión</button>
           </form>
           <small class="border-1 border-bottom border-light mt-3"><a href="#">¿Olvidaste tu Contraseña?</a></small>
           <button onclick="loginModal()" class="btn btn-primary mt-3 w-100">Crear cuenta</button>

@@ -63,7 +63,7 @@ const loginModal = async () => {
     const { value: formValues } = await Swal.fire({
         title: 'Registrate',
         html:
-            '<form name="signUp" id="signUp">' +
+            '<form method = "POST" action = "localhost:3000/login" name="signUp" id="signUp">' +
             '<input name="name" id="name" type="text" class="swal2-input" placeholder = "Nombre">' +
             '<input name="midlname" type="text" id="midlname" class="swal2-input" placeholder = "Apellido paterno">' +
             '<input name="fLastName" type="text" id="fLastName" class="swal2-input" placeholder = "Apellido paterno">' +
@@ -115,15 +115,19 @@ const loginModal = async () => {
                 email: formValues[4],
                 password: formValues[5]
             }
-
-            console.log(values);
            $.ajax({
 
             url: `/login`,
             type: 'POST',
+            accept: "application/json",
+            contentType: 'application/x-www-form-urlencoded',
             data: values,
             success: function(data){
-                console.log(data);
+               if(data){
+
+                console.log(data)
+                window.location.replace('localhost:3000/login/'+data[0].email);
+               }
             }
 
            })
