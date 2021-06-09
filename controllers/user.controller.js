@@ -12,10 +12,10 @@ const mailer = new Mailer();
 const register = (req = response, res = request) => {
     const { body } = req;
 
-    upload(req, res, (err) => {
+    /*upload(req, res, (err) => {
         if (err)
             console.log(`${'UPLOAD ERROR:'.red.bold }${err}`);
-    })
+    })*/
 
     const user = new User(body);
 
