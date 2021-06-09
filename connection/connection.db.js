@@ -7,8 +7,8 @@ class Connection {
             connectionLimit: 20,
             host: process.env.DB_HOST || 'localhost',
             user: process.env.DB_USER || 'root',
-            password: process.env.DB_PASS || 'Miguel90',
-            database: process.env.DB || 'ALTATEC_DB',
+            password: process.env.DB_PASSWORD || 'Miguel90',
+            database: process.env.DB_DATABASE || 'ALTATEC_DB',
             port: process.env.SERVER_PORT
         });
 
