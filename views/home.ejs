@@ -31,8 +31,24 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg px-3">
         <div class="container-fluid">
-            <a class="navbar-brand " href="#"><img src="assets/img/icons/altatec.png" class="img-fluid" width="200"
-                    alt=""></a>
+
+            <%
+                if(user){
+            %>
+                <a class="navbar-brand " href="/<%= user.email %>">
+                    <img src="assets/img/icons/altatec.png" class="img-fluid" width="200"
+                        alt="">
+                </a>
+            <%
+                }else{
+            %>
+                <a class="navbar-brand " href="/">
+                    <img src="assets/img/icons/altatec.png" class="img-fluid" width="200"
+                        alt="">
+                </a>
+            <%
+                }
+            %>            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -51,34 +67,61 @@
                             Categorias <i class="fas fa-chevron-down"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+                            <%
+                                if(categories){
+                                    categories.forEach(function(category){
+                            %>
+
+                                <li>
+                                    <%
+                                        if(user){
+                                    %>
+                                        <a class="dropdown-item" href="/category/<%= category.id_category %>/<%= user.email %>">
+                                            <%= category.category %>
+                                        </a>
+                                    <%
+                                        }else{
+                                    %>
+                                        <a class="dropdown-item" href="/category/<%= category.id_category %>">
+                                            <%= category.category %>
+                                        </a>
+                                    <%
+                                        }
+                                    %>
+                                </li>                            
+
+                            <%
+                                    })
+                                }
+                            %>
                         </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Computadoras <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Iniciar sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" active>$0 <i class="fas fa-shopping-cart"></i></a>
-                    </li>
+                    </li>                    
+                    <%
+                        if(user){
+                    %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" active>$0 <i class="fas fa-shopping-cart"></i></a>
+                        </li>
+
+                        <%
+                            if(!user.avatar)
+                                user.avatar = 'assets/img/user.png'
+
+                        %>
+
+                        </li class="nav-item">
+                            <a href="/user/<%= user.email %>" class="nav-link" href="user.html"><img src="<%= user.avatar %>" class="img-fluid rounded-circle" width="40" alt=""></a>
+                        </li>
+                    <%
+                    }else{
+                    %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Iniciar sesión</a>
+                        </li>
+                    <%
+                    }
+                    %>
                 </ul>
             </div>
         </div>
@@ -150,70 +193,55 @@
         <!-- NEW PRODUCT -->
         <section class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-lg-1 justify-content-center d-flex px-2 px-md-1 px-xs-0 m-0">
+                <!--<div class="col-lg-1 justify-content-center d-flex px-2 px-md-1 px-xs-0 m-0">
                     <button class="btn prev"><i class="fas fa-chevron-left"></i></button>
+                </div>-->
+                <div class="col-lg-10 d-flex justify-content-center multiple-items">
+                    <%
+                        if(productList){                        
+                            productList.forEach(function(product){
+                    %>                                
+                                <div class="card">
+                                    <%
+                                        if(user){
+                                    %>
+                                        <a href="/product/<%= product.id_prod%>/<%=user.email %>">
+                                            <img src="<%= product.thumbnail %>" class="img-fluid" style="width: 18rem;" alt="Imagen del producto">
+                                        </a>
+                                    <%
+                                        }else{
+                                    %>
+                                        <a href="/product/<%= product.id_prod %>">
+                                            <img src="<%= product.thumbnail %>" class="img-fluid" style="width: 18rem;" alt="Imagen del producto">
+                                        </a>
+                                    <%
+                                        }
+                                    %>
+                                    <div class="card-body">
+                                        <p class="card-text fs-6"><%= product.name %></p>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12">
+                                                <p id="price"><strong><%= product.price %></strong></p>
+                                            </div>
+                                            <%
+                                                if(user){
+                                            %>
+                                                <div class="col-lg-6 col-md-12">
+                                                    <a href="/cart/<%=user.email%>/<%= product.id_prod %>" class="btn"><i class="fas fa-cart-plus mr-2"></i> Agegar</a>
+                                                </div>
+                                            <%
+                                                }
+                                            %>
+                                        </div>
+                                    </div>
+                                </div>
+                    <%      })
+                        }
+                    %>                                    
                 </div>
-                <div class="col-lg-10 d-flex justify-content-center">
-                    <div class="card">
-                        <img src="assets/img/red chair.png" class="img-fluid" style="width: 18rem;" alt="">
-                        <div class="card-body">
-                            <p class="card-text fs-6">Computadoras</p>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <p id="price"><strong>$25,500</strong></p>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <a href="#" class="btn"><i class="fas fa-cart-plus mr-2"></i> Agegar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/red chair.png" class="img-fluid" style="width: 18rem;" alt="">
-                        <div class="card-body">
-                            <p class="card-text fs-6">Computadoras</p>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <p id="price"><strong>$25,500</strong></p>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <a href="#" class="btn"><i class="fas fa-cart-plus mr-2"></i> Agegar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/red chair.png" class="img-fluid" style="width: 18rem;" alt="">
-                        <div class="card-body">
-                            <p class="card-text fs-6">Computadoras</p>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <p id="price"><strong>$25,500</strong></p>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <a href="#" class="btn"><i class="fas fa-cart-plus mr-2"></i> Agegar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="assets/img/red chair.png" class="img-fluid" style="width: 18rem;" alt="">
-                        <div class="card-body">
-                            <p class="card-text fs-6">Computadoras</p>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <p id="price"><strong>$25,500</strong></p>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <a href="#" class="btn"><i class="fas fa-cart-plus mr-2"></i> Agegar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-1 justify-content-center d-flex px-2 px-md-1 px-xs-0 m-0">
+                <!--<div class="col-lg-1 justify-content-center d-flex px-2 px-md-1 px-xs-0 m-0">
                     <button class="btn next"><i class="fas fa-chevron-right"></i></button>
-                </div>
+                </div>-->
             </div>
         </section>
 
@@ -364,7 +392,7 @@
     <!-- MY SCRIPTS -->
     <!-- <script src="assets/helpers/carousel.js"></script>
     <script src="assets/js/carousel.js"></script> -->
-    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/slider.js"></script>    
 </body>
 
 </html>

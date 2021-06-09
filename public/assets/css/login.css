@@ -45,3 +45,9 @@ a:hover{
     color: var(--light);
 
 }
+
+input[type="file"]{
+    width: 65%;
+    padding: 0px;
+    height: auto;
+}

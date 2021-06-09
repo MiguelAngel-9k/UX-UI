@@ -1,11 +1,8 @@
-
-
 const addAcountModal = async () => {
 
     const { value: formValues } = await Swal.fire({
         title: 'Agrega tu correo y contrasenia',
-        html:
-            '<input name="loginEmail" type="email" id="loginEmail" class="swal2-input" placeholder = "tu-correo@dominio.com">' +
+        html: '<input name="loginEmail" type="email" id="loginEmail" class="swal2-input" placeholder = "tu-correo@dominio.com">' +
             '<input name="loginPassword" type="password" id="loginPassword" class="swal2-input" placeholder = "Contrasnia">',
 
         focusConfirm: false,
@@ -58,12 +55,12 @@ const signInModal = async () => {
      */
 }
 
+
 const loginModal = async () => {
 
     const { value: formValues } = await Swal.fire({
         title: 'Registrate',
-        html:
-            '<form method = "POST" action = "localhost:3000/login" name="signUp" id="signUp">' +
+        html: '<form name="signUp" id="signUp">' +
             '<input name="name" id="name" type="text" class="swal2-input" placeholder = "Nombre">' +
             '<input name="midlname" type="text" id="midlname" class="swal2-input" placeholder = "Apellido paterno">' +
             '<input name="fLastName" type="text" id="fLastName" class="swal2-input" placeholder = "Apellido paterno">' +
@@ -103,35 +100,46 @@ const loginModal = async () => {
                 }
             }
 
-        })      
+        })
 
-        if ($('#signUp').valid()){
+        if ($('#signUp').valid()) {
 
-            const values ={
+            const values = {
                 name: formValues[0],
-                sName: formValues[1],
-                plastName: formValues[2],
-                mLastName: formValues[3],
+                s_name: formValues[1],
+                lastName_p: formValues[2],
+                lastName_m: formValues[3],
                 email: formValues[4],
                 password: formValues[5]
             }
-           $.ajax({
 
-            url: `/login`,
-            type: 'POST',
-            accept: "application/json",
-            contentType: 'application/x-www-form-urlencoded',
-            data: values,
-            success: function(data){
-               if(data){
+            $.ajax({
 
-                console.log(data)
-                window.location.replace('localhost:3000/login/'+data[0].email);
-               }
-            }
+                url: `/user/register`,
+                type: 'POST',
+                accept: "application/json",
+                contentType: 'application/x-www-form-urlencoded',
+                data: values,
+                success: function(data) {
+                    if (data) {
+                        console.log(data);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Todo bien, todo correcto',
+                            text: 'Revisa tu bandeja de entrada, hemos enviado un correo'
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Parece ser que este correo ya esta asociado a una cuenta',
+                            footer: '<a href>Restaurar contraseña</a>'
+                        })
+                    }
+                }
 
-           })
-        }//enviar inforamcion pora ajax
+            })
+        } //enviar inforamcion pora ajax
         else {
             Swal.fire({
                 icon: 'error',
@@ -141,29 +149,26 @@ const loginModal = async () => {
             })
         }
 
-
-
-
         /* Swal.fire(JSON.stringify(formValues))
         console.log(formValues); */
     }
 }
 
-const sendInfo = ()=>{
+const sendInfo = () => {
     $.ajax({
         type: "POST",
         url: "localhost:3000/login",
         data: {
-            email : 'MiCorreo@correo.com',
+            email: 'MiCorreo@correo.com',
             password: "miPass"
         },
-        success: (res)=>{
-            if(res) console.log(res)
+        success: (res) => {
+            if (res) console.log(res)
             else console.log('no se regreso nada')
         }
-      });
+    });
 }
 
-$('#send').click(()=>{
+$('#send').click(() => {
     sendInfo();
 })
