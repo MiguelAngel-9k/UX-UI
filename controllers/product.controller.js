@@ -250,14 +250,14 @@ const productUser = (req = request, res = response) => {
             user.avatar = row[0].avatar;
             user.email = row[0].email;
 
-            console.log('USER'.yellow.bold, user);
+            //console.log('USER'.yellow.bold, user);
 
             connection.pool.query('call sp_product (?)', [item], (err, rows) => {
                 if (err) {
                     printError(err);
                     res.status(400).send('Product not found');
-                    return;
-                } else {
+                   return;
+                } else if(rows[0][0]) {                    
 
                     rows[0][0]["category"] != 2 ? product = new Product(rows[0][0]) : product = new Product(rows[0][0]);
 
@@ -310,7 +310,9 @@ const productUser = (req = request, res = response) => {
 
                     })
 
-                }
+                }else{
+                    res.status(403).send("Este producto no esta disponible")
+                }                
             })
         }
     })

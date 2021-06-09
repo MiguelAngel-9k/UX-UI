@@ -60,9 +60,11 @@ const login = (req = request, res = response) => {
         } else if (!rows[0][0]) {
             console.log('USER DOESNT EXISTS: '.red.bold);
             res.send(`${query.logInEmail} User Doesnt Exists`);
+            return;
         }
 
         res.redirect(rows[0][0].email);
+        return
 
     })
 }
