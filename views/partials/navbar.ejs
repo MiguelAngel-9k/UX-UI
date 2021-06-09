@@ -42,12 +42,29 @@
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
+            <% try {
+                if(user){
+            %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Iniciar sesión</a>
+                    <% if(user.avatar !== '') {%>
+                        <a href="<%= user.email %>" class="nav-link" href="user.html"><img src=<%= user.avatar %> class="img-fluid rounded-circle" width="40" alt=""></a>
+                    <%}else{%>
+                        <a href="<%= user.email %>" class="nav-link" href="user.html"><img src="assets/img/user.png" class="img-fluid rounded-circle" width="40" alt=""></a>
+                    <%}%>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" active>$0 <i class="fas fa-shopping-cart"></i></a>
                 </li>
+            <% 
+                }
+            }catch(err){
+            %>       
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Iniciar sesión</a>
+                </li>
+            <%
+            }
+            %>
             </ul>
         </div>
     </div>

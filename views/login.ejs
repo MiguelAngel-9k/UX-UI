@@ -39,8 +39,10 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg px-3">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="assets/img/icons/altatec.png" class="img-fluid" width="200"
-          alt="" /></a>
+      <a class="navbar-brand " href="/">
+        <img src="assets/img/icons/altatec.png" class="img-fluid" width="200"
+            alt="">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -51,47 +53,7 @@
           <button class="btn position-absolute" active style="right: 10px" type="submit">
             <i class="fas fa-search"></i>
           </button>
-        </form>
-        <ul class="navbar-nav mb-2 mx-4">
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Categorias <i class="fas fa-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Computadoras <i class="fas fa-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Iniciar sesión</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" active>$0 <i class="fas fa-shopping-cart"></i></a>
-          </li>
-        </ul>
+        </form>        
       </div>
     </div>
   </nav>
@@ -134,7 +96,7 @@
       <!-- LOGIN FORM -->
       <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
         <div class="card login p-4">
-          <form class="form-group my-auto" action="login/signIn" method="post">
+          <form class="form-group my-auto" action="/user/profile" method="GET">
             <input name="logInEmail" id="logInEmail" type="email" class="form-control my-4" placeholder="Tu-coreo@dominio.com" />
             <input name="logInpassword" id="logInpassword" type="password" class="form-control my-4" placeholder="Contraseña" />
             <button type="submit" class="btn btn-primary w-100" id="send">Iniciar sesión</button>
@@ -233,6 +195,7 @@
 
   <!-- MY SWEET MODALS  -->
   <script src="assets/js/modals.js"></script>
+  
 
 
 

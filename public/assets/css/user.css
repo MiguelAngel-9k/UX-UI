@@ -14,9 +14,37 @@
     
 }
 
-form input{
-    color: var(--light);
+#personal-info-form{
+	display: none;
 }
+
+#compras-tabla{
+	display: none;
+}
+
+button{
+	background-color: transparent;
+	border: none;	
+	margin-top: 0px !important;
+}
+
+span>button:hover{
+	color: white !important;
+	scale: 1.2;
+}
+
+a[controll]{
+	cursor: pointer;
+}
+
+form input{
+    color: var(--light) !important;
+}
+
+form input:focus{
+	color: var(--darkness) !important;
+}
+
 
 form label{
     font-family: var(--principal-font);

@@ -1,5 +1,3 @@
-
-
 class Jumbo {
 
     constructor(_img = '', _title = '', _desc = '', _url = '', _color = {}) {
@@ -11,24 +9,24 @@ class Jumbo {
         this.color = _color;
 
         //this.jumbo = _jumbo;
-       /*  this.titleElement = this.jumbo.children().find("#title");
-        this.descElement = this.jumbo.children().find("#description");
+        /*  this.titleElement = this.jumbo.children().find("#title");
+         this.descElement = this.jumbo.children().find("#description");
 
-        this.jumbo.css("background-image", `url(${_img})`);
-        this.titleElement.text(_title);
-        this.descElement.text(_desc); */
+         this.jumbo.css("background-image", `url(${_img})`);
+         this.titleElement.text(_title);
+         this.descElement.text(_desc); */
 
         //this.jumbo.hide();
     }
 
-    showUp(_jumbo){
-        
+    showUp(_jumbo) {
+
         _jumbo.css("background-image", `url(${this.img})`);
         _jumbo.children().find('#title').text(this.title);
         _jumbo.children().find('#description').text(this.desc);
 
 
-        _jumbo.children().find('#title').css('color','dark');
+        _jumbo.children().find('#title').css('color', 'dark');
 
     }
 
@@ -70,16 +68,22 @@ let pos = 0
 
 slider[0].showUp(jumbo);
 
-setInterval(()=>{
+setInterval(() => {
 
     //slider[pos].jumbo.hide();
 
-    if(pos <= slider.length-1){
+    if (pos <= slider.length - 1) {
         slider[pos].showUp(jumbo);
         pos += 1;
-    }else {
+    } else {
         pos = 0;
         slider[pos].jumbo.show(jumbo);
     }
 
-},3000);
+}, 3000);
+
+$('.multiple-items').slick({
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll: 2
+});

@@ -36,6 +36,32 @@
     outline: none !important;
 }
 
+.slick-prev{
+  border: none;
+  background-color: transparent;  
+  color: var(--primary-color);
+  font-family: var(secondary-font);
+}
+
+.slick-prev:hover{
+  color: var(--secondary-color);
+}
+
+.slick-next:hover{
+  color: var(--secondary-color);
+}
+
+.slick-next{
+  border: none;
+  background-color: transparent;  
+  color: var(--primary-color);
+  font-family: var(secondary-font);
+}
+
+a[cart]{
+  cursor: pointer;
+}
+
 .fs-1{
   font-family: var(--principal-font);
   color: var(--light);

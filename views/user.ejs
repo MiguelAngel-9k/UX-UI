@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Altatec | Perfil</title>
+    <!-- HEAD -->
+    <%- include('./partials/head'); %>
+    <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <!-- INTROJS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.4.0/introjs.min.css">
+    <!-- JQUERY SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <input type="hidden" name="onboard" id="onboard" value="<%= user.first %>">
+    <nav class="navbar navbar-expand-lg px-3">
+        <div class="container-fluid">
+            <%
+                if(user){
+            %>
+            <a class="navbar-brand " href="/<%= user.email %>">
+                <img src="assets/img/icons/altatec.png" class="img-fluid" width="200" alt="">
+            </a>
+            <%
+                }else{
+            %>
+            <a class="navbar-brand " href="/">
+                <img src="assets/img/icons/altatec.png" class="img-fluid" width="200" alt="">
+            </a>
+            <%
+                }
+            %>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex mx-auto w-50 position-relative">
+                    <input class="form-control me-2" type="text" placeholder="Buscar" aria-label="Search">
+                    <button class="btn position-absolute" active style="right:10px;" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <ul class="navbar-nav mb-2 mx-4">
+                    <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" active>$0 <i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    <%
+                            if(!user.avatar)
+                                user.avatar = 'assets/img/user.png'
+
+                        %>
+                    </li class="nav-item">
+                    <a href="/user/<%= user.email %>" class="nav-link" href="user.html"><img src="<%= user.avatar %>" class="img-fluid rounded-circle" width="40" alt=""></a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">s
+        <div class="row p-4">
+            <!-- USUARIO -->
+            <div class="col-lg-12 p-lg-5 p-md-4 p-xs-0 content">
+                <div class="row broder border-bottom border-2 border-light">
+                    <span data-title="Perfil" data-intro="Aqui podras consultar toda tu información" class="col-lg-1 col-md-12">
+                        <% 
+                        if(user){
+                            if(user.avatar !== ''){                        
+                       %>
+                        <a cart id="userAvatar">
+                            <img src=<%=user.avatar %> class="img-fluid avatar" width="100" alt="">
+                        </a>
+                        <%
+                            }else {
+                        %>
+                        <a cart id="userAvatar">
+                            <img src="assets/img/user.png" class="img-fluid avatar" width="100" alt="">
+                        </a>
+                        <%
+                            }
+                        }
+                        %>
+                    </span>
+                    <span class="col-lg-11 col-md-12">
+                        <p class="d-inline fs-1 fw-bold text-primary font-secondary text-capitalize">Buenos dias </p>
+                        <h2 id="user" class="d-inline fs-1 text-capitalize font-primary fw-bold">
+                            <% if(user){ %>
+                            <%= `${user.name} ${user.s_name} ${user.lastName_p} ${user.lastName_m}` %>
+                            <% } %>
+                        </h2>
+                    </span>
+                    <form action="/user/set-avatar" method="POST" id="setAvatar" enctype="multipart/form-data">
+                        <input type="hidden" name="Avataremail" id="user-email" value="<%= user.email %>">
+                        <input type="file" name="avatar" id="avatar">
+                        <input type="submit" class="btn btn-primary" value="Cambiar">
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span data-title="Listas de desos" data-intro="Aqui podras consultar todas tus listas de desos asi como crear mas listas" class="p-2">
+                            <a href="/wish-list/<%= user.email %>" controll class="fs-5 mt-4 text-center text-secondary font-secondary fw-bold">
+                                <i class="fas fa-list mx-1"></i>
+                                Tus lista de desos
+                            </a>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span data-title="Compras" data-intro="Aqui podras consultar todas tus compras" class="p-2">
+                            <a href="#compras-tabla" id="compras" controll class="fs-5 mt-4 text-center text-secondary font-secondary fw-bold">
+                                <i class="fas fa-box mx-1"></i>
+                                Compras
+                            </a>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span data-title="Dirección" data-intro="No olvides agregar una dirección de envió" class="p-2">
+                            <a controll id="adressInfo" class="fs-5 mt-4 text-center text-secondary font-secondary fw-bold">
+                                <i class="fas fa-truck mx-1"></i>
+                                Dirección de envio
+                            </a>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span data-title="Personal" data-intro="Aqui podras editar tu información del perfil" class="p-2">
+                            <a controll id="personalInfo" class="fs-5 mt-4 text-center text-secondary font-secondary fw-bold">
+                                <i class="fas fa-user mx-1"></i>
+                                Infomración personal
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <!-- WISH LISTS -->
+                <div class="row">
+                    <div class="d-flex col-lg-4 col-md-6 col-xs-12 multiple-items">
+                        <!--<button class="prev"><i class="fas fa-chevron-left"></i></button>-->
+                        <% if(lists){ 
+                                lists.forEach( function(list){ 
+                        %>
+                        <div class="card">
+                            <img src="<%= list.list_thumbnail %>" class="img-fluid" style="width: 18rem;" alt="">
+                            <div class="card-body">
+                                <p class="d-block card-text fs-6 d-inline text-center">
+                                    <%= list.list%>
+                                </p>
+                                <a href="wish-list.html" class="btn btn-primary d-inline mx-2">Ver</a>
+                            </div>
+                        </div>
+                        <%
+                                })
+                            }
+                        %>
+                        <!--<button class="prev"><i class="fas fa-chevron-right"></i></button>-->
+                    </div>
+                    <div class="col-lg-7 col-md-6 col-xs-12 mt-3">
+                        <h2 class="fs-3 mb-1 fw-bold text-secondary font-primary text-center" id="formTitle">Dirección de envio</h2> -->
+                        <!-- USER PERSONAL INFO -->
+                        <form action="" class="" id="personal-info-form">
+                            <div class="mb-3 row">
+                                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input requried type="text" readonly class="form-control-plaintext" name="email" id="email" value="<%= user.email %>">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="updatePassword" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input requried type="password" class="form-control" name="updatePassword" id="updatePassword" value="<%= user.password %>">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="updateName" class="col-sm-2 col-form-label">Nombre</label>
+                                <div class="col-sm-10">
+                                    <input requried type="text" name="updateName" class="form-control" id="updateName" value="<%= user.name %>">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="updateMiddlename" class="col-sm-2 col-form-label">Nombre</label>
+                                <div class="col-sm-10">
+                                    <input requried type="text" name="updateMiddlename" class="form-control" id="updateMiddlename" value="<%= user.s_name %>">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="updateLastName-p" class="col-sm-2 col-form-label">Segundo nombre</label>
+                                <div class="col-sm-10">
+                                    <input requried type="text" name="updateLastName" class="form-control" id="updateLastName-p" value="<%= user.lastName_p %>">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="updateLastName-m" class="col-sm-2 col-form-label">Apellido paterno</label>
+                                <div class="col-sm-10">
+                                    <input requried type="text" name="updateLastName-m" class="form-control" id="updateLastName-m" value="<%= user.lastName_m %>">
+                                </div>
+                            </div>
+                            <button id="saveUserInfo" class="btn btn-primary w-100 mt-4">Guardar</button>
+                        </form>
+                        <!-- USER ADRESS INFO -->
+                        <form action="" id="adress-info-form">
+                            <div class="mb-3 row">
+                                <label for="number" class="col-sm-2 col-form-label">Numero</label>
+                                <div class="col-sm-10">
+                                    <input requried type="text" class="form-control" id="number" name="number" placeholder="#" value="<%= user.number %>">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="street" class="col-sm-2 col-form-label">Calle</label>
+                                <div class="col-sm-10">
+                                    <input requried type="text" name="street" class="form-control" id="street" value="<%= user.street %>">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="city" class="col-sm-2 col-form-label">Municipio</label>
+                                <div class="col-sm-10">
+                                    <input requried type="text" name="city" class="form-control" id="city" value="<%= user.city %>">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="state" class="col-sm-2 col-form-label">Estado</label>
+                                <div class="col-sm-10">
+                                    <input requried type="text" name="state" class="form-control" id="state" value="<%= user.state %>">
+                                </div>
+                            </div>
+                            <button id="saveUserAdress" class="btn btn-primary w-100 mt-4">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- COMPRAS RECIENTES -->
+        <div class="col-12">
+            <div class="row">
+                <h1 class="fs-2 font-primary fw-bold text-secondary text-center m-3">
+                    Compras Recientes
+                </h1>
+            </div>
+            <div class="row">
+                <div class="d-flex col-12">
+                    <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                    <%
+                        if(purchase){
+                            purchase.forEach( function(product){
+                    %>
+                    <div class="card">
+                        <img src="<%= product.thumbnail %>" class="img-fluid" alt="imagen del producto">
+                        <div class="card-body">
+                            <p class="card-text fs-6">
+                                <%= product.product %>
+                            </p>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <% if(product.deiscount !== 0){ %>
+                                    <p id="price"><strike>product.price</strike></p>
+                                    <%
+                                                let discount = product.price -(product.price * product.diescount);
+                                            %>
+                                    <p class="fs-6"><strong>
+                                            <%= discount %></strong></p>
+                                    <%}else if(product.deiscount === 0){%>
+                                    <p class="fs-6"><strong>
+                                            <%= product.price %></strong></p>
+                                    <%}%>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <a href="#" class="btn"><i class="fas fa-cart-plus mr-2"></i> Agegar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%
+                        });
+                    }
+                    %>
+                    <button class="prev"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="compras-tabla">
+            <% if(!purchaseList){ %>
+            <h4 class="fs-3 font-primary text-center text-secondary fw-bold">No hay compras de momento</h4>
+            <%}else{%>
+            <table class="table caption-top table bg-darkness font-secondary table-lg p-5">
+                <caption class="fs-1 text-center m-3 fw-bold">Compras
+                </caption>
+                <thead class="fs-2 text-center font-secondary text-primary">
+                    <tr>
+                        <th scope="col" hidden>#</th>
+                        <th scope="col">Articulo</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% purchaseList.forEach( function(product){ %>
+                    <tr>
+                        <th scope="row" hidden>>%= product.product_id %></th>
+                        <td class="text-center">
+                            <span>
+                                <img src="<%= product.thumbnail %>" width="80" alt="">
+                                <%= product.product %>
+                            </span>
+                        </td>
+                        <td class="text-center">
+                            <%= product.total %>
+                        </td>
+                        <td class="text-center">
+                            <%= product.purchase_date %>
+                        </td>
+                        <th class="text-center text-primary">
+                            <%= product.status %>
+                        </th>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <%}%>
+        </div>
+        <!-- FOOTER -->
+        <footer class="row mt-5 p-5">
+            <div class="row my-5">
+                <div class="row footer">
+                    <div class="col mx-auto">
+                        <h4 class="footer-brand mx-4" brand>
+                            altatec
+                        </h4>
+                        <ul class="footer-link">
+                            <li>
+                                Lemon drops marshmallow gummi bears cupcake tart candy canes. Candy macaroon lemon drops
+                                halvah. Cake chocolate cake tootsie roll gummies cupcake.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>
+                            Computadoras Armadas
+                        </h4>
+                        <ul class="footer-link">
+                            <li>
+                                <a href="#">Workstations</a>
+                            </li>
+                            <li>
+                                <a href="#">Gamer</a>
+                            </li>
+                            <li>
+                                <a href="#">Disenio</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>Categorias</h4>
+                        <ul class="footer-link">
+                            <li>
+                                <a href="#">Computadoras</a>
+                            </li>
+                            <li>
+                                <a href="#">Perifericos</a>
+                            </li>
+                            <li>
+                                <a href="#">Motherboards</a>
+                            </li>
+                            <li>
+                                <a href="#">Tarjetas graficas</a>
+                            </li>
+                            <li>
+                                <a href="#">Gabinetes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>Contactanos</h4>
+                        <ul class="footer-link">
+                            <li>
+                                <a href="#"><b>Direccion</b>: Emilio Carranza 935, Treviño, 64720 Monterrey,
+                                    N.L.</a><br>
+                                <a href="#"><b>Horario</b> Lunes a Sabado de 12:00 - 18:00</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-whatsapp mr-2"></i><b>Whatsapp:</b> (81) 84 63 78 88 y (81)
+                                    31
+                                    61 38 50</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-phone mr-2"></i><b>Telefono:</b>(81) 83 75 21 25 Y (81) 75
+                                    23
+                                    37</a>
+                            </li>
+                            <li>
+                                <a href="#">Correo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JQUERY BOOTSTRAP V5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <!-- SLICK CAROUSEL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- JQUERY VALIDATE -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <!-- INTRO JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.4.0/intro.min.js"></script>
+    <!-- SWEETALERT -->
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="/assets/js/purchaseTable.js"></script>
+    <script src="assets/js/onboarding.js"></script>
+    <script>
+    const avatar = $('#userAvatar');
+    const setAvatar = $('#setAvatar');
+
+    setAvatar.hide();
+
+
+    avatar.on('click', () => {
+
+        setAvatar.fadeIn('slow');
+    })
+
+    $('.multiple-items').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
+    </script>
+</body>
+
+</html>

@@ -83,6 +83,10 @@ a.dropdown-item:hover {
   color: var(--primary-color) !important;
 }
 
+a[cart]{
+  cursor: pointer;
+}
+
 /* MY OWN DROPDOWNS STYLE */
 /* .drop{
     position: relative;

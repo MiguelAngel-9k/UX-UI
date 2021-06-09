@@ -128,3 +128,19 @@
                     </tbody>
                 </table>
 `
+
+
+#Mailgun password = 6PVxuXFCCsbPn27
+
+#TODO
+1. Agregar producto con sus imagenes, portada y categoria 
+    (alemnos 10 por cada categoria)
+2. Mostrar todos los productos en todas las paginas donde deba
+    ##HOME PAGE
+        --Sillas del primer carousel
+3. Agregar productos a una lista de favoritos con un combobox
+4. Agregar al carrito y que la informacion no se pierda (puede ser un json local)
+5. el precio del carrito se debe mostrar en todas las navbar si el usuario
+    esta en sesion
+6. Mostrar a el usuaro en todas las pantallas
+7. solucionar bugs del usuario

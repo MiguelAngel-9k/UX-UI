@@ -1,125 +1,270 @@
+require('colors');
 const { request, response } = require('express');
-const conn = require('../connection/connection.db');
+const Connecton = require('../connection/connection.db');
+const User = require('../models/user.model.js');
+const WishList = require('../models/wish_list.model');
+const Mailer = require('../helpers/sendMail');
 
-const login = (req = request, res = response) => {
-    res.render('login')
-}
+const connection = new Connecton();
+const mailer = new Mailer();
 
-
-const getUser = (req = request, res = response) => {
-    console.log(req.params.email);
-    try {
-        conn.query('select * from user where email = ?', [req.params.email], (err, rows, fields) => {
-
-            if (err) {
-                console.log(err);
-                throw err;
-            }
-
-            res.render('user', {
-                name: rows[0].user_name
-            }) ;
-
-        })
-
-    } catch (error) {
-        return null
-    }
-}
-
-//TODO:
-/* 
-    *Registrarse-
-    *Get para consulatar a la base de datos el correo dado-
-        *Join del usuario, sus lista, compras recientes y carrito, direccion
-        *Enviarlo para mostrarlo en la vista    
-    *Obtener iformacion de usuario
-    *Reenviar a pagina principal con su informacion
-    *Una vez completado eso, hacer un stored procedure
-    *Una vez todo funcione con el patron builder construir mi modelo usuario
-*/
-
-const newUser = (req = request, res = response) => {
-
+//Registrar a un nuevo usuario
+const register = (req = response, res = request) => {
     const { body } = req;
-    try {
-        conn.query(`insert into user(
-            email,
-            user_name,
-            s_name,
-            m_lastName,
-            p_lastName,
-            user_password
-        ) values(?,?,?,?,?,?)`, [body.email, body.name, body.sName, body.mLastName, body.pLastName, body.password], (err, rows, fields) => {
+
+    upload(req, res, (err) => {
+        if (err)
+            console.log(`${'UPLOAD ERROR:'.red.bold }${err}`);
+    })
+
+    const user = new User(body);
+
+    console.log(user);
+
+    connection.pool.query('call register_user (?, ?, ?, ?, ?, ?, ?)',
+        [
+            user.name,
+            user.s_name,
+            user.lastName_p,
+            user.lastName_m,
+            user.email,
+            user.password,
+            ""
+        ], (err, rows) => {
 
             if (err) {
-                console.log(err);
+                console.log('QUERY ERROR: '.red.bold, err.message);
+                //res.send(' Query Fail');
+                res.status(200).send(null);
+                return;
+            } else {
+
+                mailer.sendMail(user.email, 'Atatec-Registro');
+
+                res.status(200).send('succes');
                 return;
             }
-
-          rows.affectedRows > 0 ? res.redirect('/login/'+body.email) : res.send('Not Found');
-            //res.render('user', user);
-        });
-    } catch (error) {
-        console.log(error);
-        return;
-    }
+        })
 }
 
-const getPurchases = (email = '', model)=> {
+const login = (req = request, res = response) => {
 
-    conn.query('select * from purchases_view where email = ?', [email], (err, rows, fields)=>{
+    const { query } = req;
+
+    connection.pool.query('call login(?, ?)', [query.logInEmail, query.logInpassword], (err, rows) => {
+
         if (err) {
-            console.log(err);
-            throw err;
+            console.log('QUERY ERROR: '.red.bold, err.message);
+            //res.send(' Query Fail');
+            res.redirect('/login');
+        } else if (!rows[0][0]) {
+            console.log('USER DOESNT EXISTS: '.red.bold);
+            res.send(`${query.logInEmail} User Doesnt Exists`);
         }
-        console.log('p',rows);
-        model.push(rows[0]);               
-        
-    });         
 
+        res.redirect(rows[0][0].email);
+
+    })
 }
 
+const profile = (req = request, res = response) => {
+    const { email } = req.params;
+    let data = {};
+    let user;
+    let lists = [];
+    let purchase = [];
+    let purchaseList = [];
 
-const signIn = (req = request, res = response) => {
+    //GET USER INFO
+    connection.pool.query('call sp_user_info (?, ?)', [email, 'ADRESS'], (err, rows) => {
+
+        if (err) {
+            console.log('QUERY ERROR: '.red.bold, err.message);
+            res.status(404).send('Not Found');
+        } else {            
+            console.log('user'.yellow, rows[0][0]);
+            data.user = new User(rows[0][0]);
+            //res.render('user', {user});
+
+            connection.pool.query('call sp_user_info (?, ?)', [email, 'LISTS'], (err, rows) => {
+
+                if (err) {
+                    console.log('QUERY ERROR: '.red.bold, err.message);
+                } else {
+
+                    if (rows[0]) {
+                        Object.keys(rows[0]).forEach(row => {
+                            lists.push(new WishList(rows[0][row]));
+                        });
+
+                        data.lists = lists;
+                        //console.log('Lists'.yellow, data.lists);
+                    }
+
+                    //GET USER PURCHASES
+                    connection.pool.query('call sp_user_info (?, ?)', [email, 'PURCHASE'], (err, rows) => {
+
+                        if (err) {
+                            console.log('QUERY ERROR: '.red.bold, err.message);
+                        } else {
+                            if (rows[0]) {
+                                console.log('RECENT PURCHASE ROWS', rows[0]);
+                                Object.keys(rows[0]).forEach(row => purchase.push(rows[0][row]));
+                                data.purchase = purchase;
+                                //console.log('purchase'.yellow, data.purchase);
+                            }
+                            //PURCHASE TABLE
+                            connection.pool.query('select*from vw_purchase where user = ?', email, (err, rows) => {
+
+                                if (err) {
+                                    console.log('QUERY ERROR: '.red.bold, err.message);
+                                } else {
+                                    if (rows) {
+                                        //console.log('PURCHASE ROWS', rows);
+                                        Object.keys(rows).forEach(product => purchaseList.push(rows[product]));
+                                        data.purchaseList = purchaseList;
+                                        //console.log('PURCHASE LIST'.yellow.bold, data.purchaseList);
+                                    }
+
+                                    res.render('user', {
+                                        user: data.user,
+                                        lists: data.lists,
+                                        purchase: data.purchase,
+                                        purchaseList: data.purchaseList
+                                    });
+                                }
+                            })
+
+                        }
+                    })
+                }
+
+            })
+        }
+    })
+}
+
+const personalInfo = (req = request, res = resposnse) => {
 
     const { body } = req;
-    let userModel = [];
+    const user = new User(body);
+    //console.log('USER'.yellow, user);
+    connection.pool.query('call sp_update_user(?, ?, ?, ?, ?, ? ,? ,? ,?, ?, ?)', [
+        user.name,
+        user.s_name,
+        user.lastName_p,
+        user.lastName_m,
+        user.password,
+        0,
+        '',
+        '',
+        '',
+        user.email,
+        'USER'
+    ], (err, rows) => {
 
-    try {
-        conn.query(`call login (?, ?)`, [body.logInEmail, body.logInpassword], (err, rows, fields) => {
+        if (err) {
+            console.log('QUERY ERROR: '.red.bold, err.message);
+            res.send('succed');
+            return;
+        } else {
+            res.send('succed');
+            return;
+        }
+    })
 
-            if (err) {
-                console.log(err);
-                throw err;
-            }
-            //userModel.push(rows[0][0]);                          
-            console.log('u',rows[0][0]);
-        })
-        
-        conn.query('select * from purchases_view where email = ?', [body.logInEmail], (err, rows, fields)=>{
-            if (err) {
-                console.log(err);
-                throw err;
-            }
-            //console.log('p',rows[0]);
-            userModel.push(rows[0]);               
-            
-        });     
-        constole.log(userModel);
-        res.json(userModel);
+}
+
+const adressInfo = (req = request, res = resposnse) => {
+
+    const { body } = req;
+    const user = new User(body);
+    //console.log('USER'.yellow, user);
+    connection.pool.query('call sp_update_user(?, ?, ?, ?, ?, ? ,? ,? ,?, ?, ?)', [
+        '',
+        '',
+        '',
+        '',
+        '',
+        user.number,
+        user.street,
+        user.city,
+        user.state,
+        user.email,
+        'ADRESS'
+    ], (err, rows) => {
+
+        if (err) {
+            console.log('QUERY ERROR: '.red.bold, err.message);
+            res.send('succed');
+            return;
+        } else {
+            res.send('succed');
+            return;
+        }
+    })
+}
+
+const getOnboard = (req = request, res = response)=>{
+
+    console.log(req.body);
+    res.send(1);
+
+}
+
+const setOnboard = (req = request, res = response)=>{
+
+    const { onboard, email } = req.body;
+
+    connection.pool.query('update user set first = ? where email = ?', [onboard, email], (err, rows)=>{
+        if(err){
+            console.log('QUERY ERROR: '.red.bold, err.message);
+            res.send('Fail');
+            return;
+        }
+
+        res.send('succed');
+        return;
+
+    })
+    //set 1 in user table
+}
+
+const estUserImage = (req = request, res = response)=>{
+
+    /*
+        *Guardar la imagen en la base de datos
+
+        *Volver a reenviar a la pagina del usuario con la nueva imagen de perfil
+    */
+
+    const avatar = 'assets/img/'+req.file.filename;
+    console.log(req.file);
+    const { Avataremail } = req.body;
+
+    connection.pool.query('update user set avatar = ? where email = ?', [avatar, Avataremail], (err, rows)=>{
+        if(err)
+            console.log('QUERY ERROR: '.red.bold, err.message);
 
 
-    } catch (error) {
-        return null
-    }
+        res.redirect(Avataremail);
+    })
 }
 
 module.exports = {
-
-    getUser,
+    register,
     login,
-    newUser,
-    signIn
-
+    profile,
+    personalInfo,
+    adressInfo,
+    getOnboard,
+    setOnboard,
+    estUserImage
 }
+
+/*
+    *Primero recvir la informacion del producto y el usuario
+    *solo recivira informacion de tres paginas, inicio, categoria, pagina del producto
+    *Revisar si el usuario ya tiene un carrito y no tiene, agregarlo al arreglo de objetos
+
+*/
