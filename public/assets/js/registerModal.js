@@ -63,7 +63,7 @@ const loginModal = async () => {
                 type: 'POST',
                 accept: "multipart/from-data",
                 contentType: false,
-                data: dataPacket,
+                data: formValues,
                 cache: false
                 success: function(data) {
                     if (data) {
