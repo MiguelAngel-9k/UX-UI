@@ -48,15 +48,6 @@ const loginModal = async () => {
 
         if ($('#signUp').valid()) {
 
-            let dataPacket = new FortData();
-
-            dataPacket.append('avatar', $('#avatar')[0].files[0]);
-            dataPacket.append('name', $('#name').prop('value'));
-            dataPacket.append('midlname', $('#midlname').prop('value'));
-            dataPacket.append('fLastName', $('#fLastName').prop('value'));
-            dataPacket.append('email', $('#email').prop('value'));
-            dataPacket.append('pwd', $('#pwd').prop('value'));
-
             $.ajax({
 
                 url: `/user/register`,

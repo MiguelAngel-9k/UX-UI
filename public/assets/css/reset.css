@@ -20,6 +20,10 @@
     --header-size: 3rem;
   }
 
+.navbar-toggler{
+  background-color: var(--primary-color);
+}
+
   body {
     /* overflow: hidden; */
     padding: 0px;

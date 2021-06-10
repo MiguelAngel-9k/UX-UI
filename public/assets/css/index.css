@@ -20,6 +20,10 @@ body {
   /* overflow-x: hidden; */
 }
 
+.navbar-toggler{
+  background-color: var(--primary-color);
+}
+
 li {
   margin: 0px;
 }

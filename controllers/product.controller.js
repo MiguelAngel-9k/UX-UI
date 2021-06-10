@@ -57,7 +57,7 @@ const homeUser = (req = request, res = response) => {
             printError(err);
         }
 
-        user.avatar = rows[0].avatar;
+        user.avatar = rows[0].avatar;        
         user.email = rows[0].email;
 
         connection.pool.query('select thumbnail, name, price, id_prod from product where category = 1', [], (err, rows) => {

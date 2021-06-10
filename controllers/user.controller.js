@@ -57,9 +57,10 @@ const login = (req = request, res = response) => {
             console.log('QUERY ERROR: '.red.bold, err.message);
             //res.send(' Query Fail');
             res.redirect('/login');
+            return;
         } else if (!rows[0][0]) {
             console.log('USER DOESNT EXISTS: '.red.bold);
-            res.send(`${query.logInEmail} User Doesnt Exists`);
+            res.redirect('/login')
             return;
         }
 
@@ -83,65 +84,69 @@ const profile = (req = request, res = response) => {
         if (err) {
             console.log('QUERY ERROR: '.red.bold, err.message);
             res.status(404).send('Not Found');
-        } else {            
-            console.log('user'.yellow, rows[0][0]);
-            data.user = new User(rows[0][0]);
-            //res.render('user', {user});
+        } else {
+            console.log('user'.yellow, rows[0][0], 'Linea 88');
 
-            connection.pool.query('call sp_user_info (?, ?)', [email, 'LISTS'], (err, rows) => {
+            if (rows[0][0]) {
+                data.user = new User(rows[0][0]);
 
-                if (err) {
-                    console.log('QUERY ERROR: '.red.bold, err.message);
-                } else {
+                //res.render('user', {user});
 
-                    if (rows[0]) {
-                        Object.keys(rows[0]).forEach(row => {
-                            lists.push(new WishList(rows[0][row]));
-                        });
+                connection.pool.query('call sp_user_info (?, ?)', [email, 'LISTS'], (err, rows) => {
 
-                        data.lists = lists;
-                        //console.log('Lists'.yellow, data.lists);
+                    if (err) {
+                        console.log('QUERY ERROR: '.red.bold, err.message);
+                    } else {
+
+                        if (rows[0]) {
+                            Object.keys(rows[0]).forEach(row => {
+                                lists.push(new WishList(rows[0][row]));
+                            });
+
+                            data.lists = lists;
+                            //console.log('Lists'.yellow, data.lists);
+                        }
+
+                        //GET USER PURCHASES
+                        connection.pool.query('call sp_user_info (?, ?)', [email, 'PURCHASE'], (err, rows) => {
+
+                            if (err) {
+                                console.log('QUERY ERROR: '.red.bold, err.message);
+                            } else {
+                                if (rows[0]) {
+                                    console.log('RECENT PURCHASE ROWS', rows[0]);
+                                    Object.keys(rows[0]).forEach(row => purchase.push(rows[0][row]));
+                                    data.purchase = purchase;
+                                    //console.log('purchase'.yellow, data.purchase);
+                                }
+                                //PURCHASE TABLE
+                                connection.pool.query('select*from vw_purchase where user = ?', email, (err, rows) => {
+
+                                    if (err) {
+                                        console.log('QUERY ERROR: '.red.bold, err.message);
+                                    } else {
+                                        if (rows) {
+                                            //console.log('PURCHASE ROWS', rows);
+                                            Object.keys(rows).forEach(product => purchaseList.push(rows[product]));
+                                            data.purchaseList = purchaseList;
+                                            //console.log('PURCHASE LIST'.yellow.bold, data.purchaseList);
+                                        }
+
+                                        res.render('user', {
+                                            user: data.user,
+                                            lists: data.lists,
+                                            purchase: data.purchase,
+                                            purchaseList: data.purchaseList
+                                        });
+                                    }
+                                })
+
+                            }
+                        })
                     }
 
-                    //GET USER PURCHASES
-                    connection.pool.query('call sp_user_info (?, ?)', [email, 'PURCHASE'], (err, rows) => {
-
-                        if (err) {
-                            console.log('QUERY ERROR: '.red.bold, err.message);
-                        } else {
-                            if (rows[0]) {
-                                console.log('RECENT PURCHASE ROWS', rows[0]);
-                                Object.keys(rows[0]).forEach(row => purchase.push(rows[0][row]));
-                                data.purchase = purchase;
-                                //console.log('purchase'.yellow, data.purchase);
-                            }
-                            //PURCHASE TABLE
-                            connection.pool.query('select*from vw_purchase where user = ?', email, (err, rows) => {
-
-                                if (err) {
-                                    console.log('QUERY ERROR: '.red.bold, err.message);
-                                } else {
-                                    if (rows) {
-                                        //console.log('PURCHASE ROWS', rows);
-                                        Object.keys(rows).forEach(product => purchaseList.push(rows[product]));
-                                        data.purchaseList = purchaseList;
-                                        //console.log('PURCHASE LIST'.yellow.bold, data.purchaseList);
-                                    }
-
-                                    res.render('user', {
-                                        user: data.user,
-                                        lists: data.lists,
-                                        purchase: data.purchase,
-                                        purchaseList: data.purchaseList
-                                    });
-                                }
-                            })
-
-                        }
-                    })
-                }
-
-            })
+                })
+            }
         }
     })
 }
@@ -207,19 +212,19 @@ const adressInfo = (req = request, res = resposnse) => {
     })
 }
 
-const getOnboard = (req = request, res = response)=>{
+const getOnboard = (req = request, res = response) => {
 
     console.log(req.body);
     res.send(1);
 
 }
 
-const setOnboard = (req = request, res = response)=>{
+const setOnboard = (req = request, res = response) => {
 
     const { onboard, email } = req.body;
 
-    connection.pool.query('update user set first = ? where email = ?', [onboard, email], (err, rows)=>{
-        if(err){
+    connection.pool.query('update user set first = ? where email = ?', [onboard, email], (err, rows) => {
+        if (err) {
             console.log('QUERY ERROR: '.red.bold, err.message);
             res.send('Fail');
             return;
@@ -232,7 +237,7 @@ const setOnboard = (req = request, res = response)=>{
     //set 1 in user table
 }
 
-const estUserImage = (req = request, res = response)=>{
+const estUserImage = (req = request, res = response) => {
 
     /*
         *Guardar la imagen en la base de datos
@@ -240,12 +245,12 @@ const estUserImage = (req = request, res = response)=>{
         *Volver a reenviar a la pagina del usuario con la nueva imagen de perfil
     */
 
-    const avatar = 'assets/img/'+req.file.filename;
+    const avatar = 'assets/img/' + req.file.filename;
     console.log(req.file);
     const { Avataremail } = req.body;
 
-    connection.pool.query('update user set avatar = ? where email = ?', [avatar, Avataremail], (err, rows)=>{
-        if(err)
+    connection.pool.query('update user set avatar = ? where email = ?', [avatar, Avataremail], (err, rows) => {
+        if (err)
             console.log('QUERY ERROR: '.red.bold, err.message);
 
 
