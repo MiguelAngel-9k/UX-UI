@@ -347,6 +347,22 @@ const addListItem = (req = request, res = response) => {
 
 }
 
+const purchase = (req = request, res = response)=>{
+
+    const { user, product, price } = req.body;
+
+    connection.pool.query('call sp_purchase(?, ?, ?)', [user, product, price], (err, rows)=>{
+        if(err){
+            printError(err);
+            res.send('No se concreto la compra, puede intententar de nuevo \n si el problema persiste, contactenos');
+            return;
+        }
+
+        res.redirect(`product/${product}/${user}`);
+    })
+
+}
+
 module.exports = {
 
     home,
@@ -356,6 +372,7 @@ module.exports = {
     product,
     productUser,
     comment,
-    addListItem
+    addListItem,
+    purchase
 
 }

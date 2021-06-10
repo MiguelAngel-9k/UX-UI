@@ -142,7 +142,7 @@
                                 <p class="d-block card-text fs-6 d-inline text-center">
                                     <%= list.list%>
                                 </p>
-                                <a href="wish-list.html" class="btn btn-primary d-inline mx-2">Ver</a>
+                                <a href="/wish-list/<%= user.email %>/<%= list.lists %>" class="btn btn-primary d-inline mx-2">Ver</a>
                             </div>
                         </div>
                         <%
@@ -229,15 +229,17 @@
         <div class="col-12">
             <div class="row">
                 <h1 class="fs-2 font-primary fw-bold text-secondary text-center m-3">
-                    Compras Recientes
+                    Comprar de nuevo
                 </h1>
             </div>
             <div class="row">
                 <div class="d-flex col-12">
-                    <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                    <!--<button class="prev"><i class="fas fa-chevron-left"></i></button>-->
                     <%
                         if(purchase){
+                            let limit = 0;
                             purchase.forEach( function(product){
+                                if(limit < 4){
                     %>
                     <div class="card">
                         <img src="<%= product.thumbnail %>" class="img-fluid" alt="imagen del producto">
@@ -266,10 +268,13 @@
                         </div>
                     </div>
                     <%
+                            }
+
+                            limit += 1;
                         });
                     }
                     %>
-                    <button class="prev"><i class="fas fa-chevron-right"></i></button>
+                    <!--<button class="prev"><i class="fas fa-chevron-right"></i></button>-->
                 </div>
             </div>
         </div>

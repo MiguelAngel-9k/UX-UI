@@ -4,7 +4,7 @@ const express = require('express');
 const hbs = require('hbs');
 const cors = require('cors');
 
-const { home, homeUser, category, categoryUser, product, productUser, comment, addListItem } = require('../controllers/product.controller');
+const { home, homeUser, category, categoryUser, product, productUser, comment, addListItem, purchase } = require('../controllers/product.controller');
 //const Connection = require('../connection/connection.db');
 //const Product = require('../models/product.model');
 
@@ -68,7 +68,8 @@ class Server {
         this.app.get('/category/:id_cat', category);
         this.app.get('/category/:id_cat/:email', categoryUser);
         this.app.post('/drop-comment', comment);
-        this.app.post('/add-item-list', addListItem);        
+        this.app.post('/add-item-list', addListItem);  
+        this.app.post('/purchase', purchase);      
 
 
         this.app.get('/api', (req, res) => {

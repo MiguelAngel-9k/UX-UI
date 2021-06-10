@@ -5,10 +5,10 @@ const loginModal = async () => {
         html: '<form name="signUp" id="signUp" enctype="multipart/form-data">' +
             '<input name="name" id="name" type="text" class="swal2-input" placeholder = "Nombre">' +
             '<input name="midlname" type="text" id="midlname" class="swal2-input" placeholder = "Apellido paterno">' +
-            '<input name="fLastName" type="text" id="fLastName" class="swal2-input" placeholder = "Apellido paterno">' +
+            '<input name="fLastName" type="text" id="fLastName" class="swal2-input" placeholder = "Apellido materno">' +
             '<input name="lastName" type="text" id="lastName" class="swal2-input" placeholder = "Apellido materno">' +
             '<input name="email" type="email" id="email" class="swal2-input" placeholder = "tu-correo@dominio.com">' +
-            '<input name="pwd" type="password" id="pwd" class="swal2-input" placeholder = "Contrasnia">' +
+            '<input name="pwd" type="password" id="pwd" class="swal2-input" placeholder = "Contraseña">' +
             '<input name="image" id="avatar" type="file" class="swal2-input" placeholder = "Avatar"/>' +
             '</form>',
 
